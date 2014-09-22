@@ -13,9 +13,15 @@
 
   <body>
   <%= link_to "Sign up", new_user_registration_path %>
-      <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+
     <%= yield %>
+    <%if notice%>
+    <p class="notice"><%= notice %></p>
+    <%end%>
+    <%if%>
+       <p class="alert"><%= alert %></p>
+    <%end%>
     <%= javascript_include_tag "application" %>
   </body>
 </html>
+
