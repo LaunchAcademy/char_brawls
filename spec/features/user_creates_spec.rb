@@ -89,7 +89,6 @@ scenario "User is signed in" do
 
   visit root_path
   click_on "Sign in"
-save_and_open_page
 
 
   fill_in "Email", with: user.email
