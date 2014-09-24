@@ -1,5 +1,5 @@
 require 'rails_helper'
-  feature 'user wants to see character details', %{
+feature 'user wants to see character details', %{
   As an user, I want to see information about my character
 }  do
 
@@ -12,5 +12,5 @@ require 'rails_helper'
   scenario 'must link to individual matchups' do
     visit 'characters#show'
     expect(page).to have_content character.matchups
-  end
+end
 end
