@@ -49,3 +49,4 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'factory_girl_rails'
+#gem 'pokegem'

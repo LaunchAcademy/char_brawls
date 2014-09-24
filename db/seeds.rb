@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'net/http'
+
+results = Net::HTTP.get("pokeapi.co", "/api/v1/pokedex/1/")
+
+pokemon = JSON.parse(results)["pokemon"]
+
+pokemon.each do |pokemon|
+  Character.create!(name: pokemon["name"], resource_uri: pokemon["resource_uri"])
+end
+
+
+
