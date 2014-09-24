@@ -7,6 +7,7 @@ so that I can tell the world about my opinions!
 
   scenario "User writes and submits a review" do
     matchup = FactoryGirl.create(:matchup)
+    binding.pry
     visit matchup_path(matchup)
 
     fill_in "Battle Notes", with: "I think that link is gonna kick that ass!"
@@ -18,6 +19,7 @@ so that I can tell the world about my opinions!
   scenario "User can't submit an empty review" do
 
     matchup = FactoryGirl.create(:matchup)
+
     visit matchup_path(matchup)
 
     click_on "Submit"

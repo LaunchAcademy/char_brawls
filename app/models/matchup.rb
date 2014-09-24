@@ -1,6 +1,6 @@
 class Matchup < ActiveRecord::Base
-  validates :character, presence: true
-  validates :opponent, presence: true, uniqueness: { scope: :character }
+  validates :character_id, presence: true
+  validates :opponent_id, presence: true, uniqueness: { scope: :character }
   validate :no_duplicate_characters
 
   def no_duplicate_characters

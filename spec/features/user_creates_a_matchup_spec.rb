@@ -7,7 +7,8 @@ so dat I can face these fools off
 
   scenario "User makes a match-up" do
 
-    visit new_matchup_path
+    matchup = FactoryGirl.create(:matchup)
+    visit new_matchup_path(matchup)
     select "Pikachu", :from => "Character One"
     select "Sandshrew", :from => "Character Two"
     click_on "Submit"
@@ -17,7 +18,8 @@ so dat I can face these fools off
 
   scenario "User can't choose the same char twice" do
 
-    visit new_matchup_path
+    matchup = FactoryGirl.create(:matchup)
+    visit new_matchup_path(matchup)
     select "Pikachu", :from => "Character One"
     select "Pikachu", :from => "Character Two"
     click_on "Submit"
@@ -27,7 +29,8 @@ so dat I can face these fools off
 
   scenario "User can't duplicate an existing match-up" do
 
-    visit new_matchup_path
+    matchup = FactoryGirl.create(:matchup)
+    visit new_matchup_path(matchup)
     select "Pikachu", :from => "Character One"
     select "Sandshrew", :from => "Character Two"
     click_on "Submit"
@@ -37,7 +40,8 @@ so dat I can face these fools off
 
   scenario "User must choose two characters" do
 
-    visit new_matchup_path
+    matchup = FactoryGirl.create(:matchup)
+    visit new_matchup_path(matchup)
     select "Pikachu", :from => "Character One"
     click_on "Submit"
 
@@ -46,7 +50,8 @@ so dat I can face these fools off
 
   scenario "User must choose a character" do
 
-    visit new_matchup_path
+    matchup = FactoryGirl.create(:matchup)
+    visit new_matchup_path(matchup)
     click_on "Submit"
 
     expect(page).to have_content "A matchup must have two different characters."

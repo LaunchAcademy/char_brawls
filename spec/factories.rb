@@ -1,4 +1,5 @@
 FactoryGirl.define do
+
   factory :user do
     first_name "Humphrey"
     last_name "Bogart"
@@ -15,7 +16,7 @@ FactoryGirl.define do
     end
   end
 
-factory :matchup do
+  factory :matchup do
     character_id 1
     opponent_id 2
   end
