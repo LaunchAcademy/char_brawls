@@ -11,11 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140924174025) do
+=======
+ActiveRecord::Schema.define(version: 20140924180601) do
+>>>>>>> 420c6d687c65df4dbe0981836274ebc467b0ee61
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
   create_table "matchups", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -32,6 +37,17 @@ ActiveRecord::Schema.define(version: 20140924174025) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+=======
+  create_table "characters", force: true do |t|
+    t.string   "name"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "resource_uri"
+  end
+
+  add_index "characters", ["name"], name: "index_characters_on_name", unique: true, using: :btree
+>>>>>>> 420c6d687c65df4dbe0981836274ebc467b0ee61
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
