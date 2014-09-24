@@ -1,0 +1,12 @@
+  <a href="/characters/<%= @matchup.character.id %>"><p><%= @matchup.character %></a>vs<%= @matchup.opponent %></p>
+
+<%= form_for new_matchup_review do |f| %>
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+
+  <%= f.check_box :vote, {}, 1, 0 %>
+  <%= f.check_box :vote, {}, -1, 0 %>
+
+  <%= f.submit %>
+
+<% end %>

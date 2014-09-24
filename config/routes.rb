@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   resources :characters, only: [:index]
 
-
+  resources :matchups do
+    resources :reviews, only: [:new, :create]
+  end
 end

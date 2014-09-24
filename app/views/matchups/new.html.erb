@@ -1,0 +1,11 @@
+<%= form_for @matchup do |f| %>
+
+  <%= f.label "Character One" %>
+  <%= f.collection_select :character %>
+
+  <%= f.label "Character Two" %>
+  <%= f.collection_select :opponent %>
+
+  <%= f.submit %>
+
+<% end %>

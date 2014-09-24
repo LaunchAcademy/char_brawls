@@ -1,0 +1,6 @@
+<% @matchups.each do |matchup| %>
+
+  <%= link_to "#{matchup.character} vs. #{matchup.opponent}", matchup_path(matchup) %>
+
+<% end %>
+
