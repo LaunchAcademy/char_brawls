@@ -7,11 +7,11 @@ FactoryGirl.define do
   end
 
   factory :character do
-    name "Pikachu"
-    bio "This motherfuckers a real shocker!"
-
-    name "Sandshrew"
-    bio "Oh shit!"
+    sequence :name do |n|
+      "#{n}Pikachu"
+    end
+    sequence :resource_uri do |n|
+      "#{n}api/v1/pokemon/"
+    end
   end
-
 end

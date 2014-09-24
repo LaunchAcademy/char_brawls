@@ -11,19 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923172829) do
+ActiveRecord::Schema.define(version: 20140924180601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "characters", force: true do |t|
+    t.string   "name"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "resource_uri"
   end
 
-  create_table "matchups", force: true do |t|
-  end
-
-  create_table "reviews", force: true do |t|
-  end
+  add_index "characters", ["name"], name: "index_characters_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -38,8 +39,8 @@ ActiveRecord::Schema.define(version: 20140923172829) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "first_name",                          null: false
+    t.string   "last_name",                           null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
