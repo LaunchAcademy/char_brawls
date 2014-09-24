@@ -2,15 +2,15 @@ require 'rails_helper'
 feature "user wants to see characters", %{
   As an user,
   I want to see a list of characters
-}  do
+  }  do
 
-scenario "user can view characters" do
-  character1 = FactoryGirl.create(:character)
-  character2 = FactoryGirl.create(:character)
+  scenario "user can view characters" do
+    character1 = FactoryGirl.create(:character)
+    character2 = FactoryGirl.create(:character)
 
-  visit characters_path
+    visit characters_path
 
-  expect(page).to have_content character1.name
-  expect(page).to have_content character2.name
-end
+    expect(page).to have_content character1.name
+    expect(page).to have_content character2.name
+  end
 end
