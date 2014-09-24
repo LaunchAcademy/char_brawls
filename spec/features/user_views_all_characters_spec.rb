@@ -10,7 +10,7 @@ feature "user wants to see character details", %{
   end
 
   scenario "must link to individual matchups" do
-    visit 'characters#show'
+    visit character_path(character1)
     expect(page).to have_content character.matchups
-end
+  end
 end

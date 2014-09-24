@@ -1,5 +1,5 @@
 class Character < ActiveRecord::Base
   validates :name,
-  presence: true,
-  uniqueness: true
+    presence: true,
+    uniqueness: true
 end
