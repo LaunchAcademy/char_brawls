@@ -12,8 +12,6 @@ so dat I can face these fools off
     select "Sandshrew", :from => "Character Two"
     click_on "Submit"
 
-    save_and_open_page
-
     expect(page).to have_content "The matchup has been created successfully."
   end
 

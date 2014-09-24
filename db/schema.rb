@@ -19,16 +19,16 @@ ActiveRecord::Schema.define(version: 20140924174025) do
   create_table "matchups", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "character_id"
-    t.string   "opponent_id"
-    t.integer  "votes"
+    t.integer  "character_id", null: false
+    t.integer  "opponent_id",  null: false
   end
 
   add_index "matchups", ["character_id", "opponent_id"], name: "index_matchups_on_character_id_and_opponent_id", unique: true, using: :btree
 
-  create_table "reviews", force: true do |t|
-    t.string   "body"
+  create_table "opinions", force: true do |t|
+    t.string   "body",       null: false
     t.integer  "matchup_id", null: false
+    t.boolean  "vote",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

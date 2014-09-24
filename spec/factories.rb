@@ -14,4 +14,9 @@ FactoryGirl.define do
     bio "Oh shit!"
   end
 
+factory :matchup do
+    character_id 1
+    opponent_id 2
+  end
+
 end

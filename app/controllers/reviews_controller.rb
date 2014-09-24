@@ -7,13 +7,9 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
   end
 
-
-
   def create
     @review = Review.new
     @matchup = Matchup.find(params[:matchup_id])
-
-    binding.pry
 
     if params(:vote)
       @matchup.votes += params(:vote).to_i
