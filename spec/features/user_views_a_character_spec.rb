@@ -1,7 +1,7 @@
 require 'rails_helper'
 feature "user wants to see characters", %{
-As an user,
-I want to see a list of characters
+  As an user,
+  I want to see a list of characters
 }  do
 
 scenario "user can view characters" do
