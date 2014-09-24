@@ -1,5 +1,5 @@
 require 'rails_helper'
-feature 'user wants to see character details', %{
+  feature 'user wants to see character details', %{
   As an user, I want to see information about my character
 }  do
 
