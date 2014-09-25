@@ -1,4 +1,5 @@
 FactoryGirl.define do
+
   factory :user do
     first_name "Humphrey"
     last_name "Bogart"
@@ -7,8 +8,16 @@ FactoryGirl.define do
   end
 
   factory :character do
-    name "Pikachu"
-    bio "This motherfuckers a real shocker!"
+    sequence :name do |n|
+      "#{n}Pikachu"
+    end
+    sequence :resource_uri do |n|
+      "#{n}api/v1/pokemon/"
+    end
   end
 
+  factory :matchup do
+    character_id 1
+    opponent_id 2
+  end
 end
