@@ -14,7 +14,7 @@ feature 'user add an avatar', %Q(
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
     fill_in "Password confirmation", with: user.password
-    attach_file 'user_avatar','/spec/images/pitbullpuppy.jpg'
+    attach_file "Profile Photo","app/assets/images/pitbull_puppy.jpg"
     within '.new_user' do
       click_on "Sign up"
     end
