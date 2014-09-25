@@ -12,9 +12,9 @@
   </head>
 
   <body>
+
   <div class = "fixed">
   <nav class = "top-bar">
-  <section>
   <ul class = "nav-bar">
     <% if current_user %>
       <li> <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
@@ -22,13 +22,30 @@
 
 
     <% if !current_user %>
-       <li> <%= link_to "Sign up", new_user_registration_path %></li>
-       <li><%= link_to "Sign in", new_user_session_path %></li>
-    <% end %>
 
-    <li><%= link_to "Home", characters_path%></li>
-    <li><%= link_to "Characters", characters_path %></li>
-    <li class="search"><form><input type="search"></form></li>
+    <ul class="left">
+      <li>
+        <a href="#">
+          <font size="5"><%= link_to "Home", characters_path%></font>
+          <font size="5"><%="|"%> </font>
+          <font size="5"><%= link_to "Characters", characters_path%></font>
+          <font size="5"><%="|"%> </font>
+          <font size="5"><%= link_to "Matchups", characters_path%></font>
+        </a>
+      </li>
+    </ul>
+
+    <ul class="right">
+      <li>
+        <a href="#">
+          <font size="5"><%= link_to "Sign in", new_user_session_path%>
+          <font size="5"><%="|"%></font>
+          <font size="5"><%= link_to "Sign up", new_user_registration_path%>
+        </a>
+      </li>
+    </ul>
+
+    <% end %>
     </ul>
     </section>
     </nav>
