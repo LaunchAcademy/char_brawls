@@ -1,12 +1,11 @@
 require 'rails_helper'
 feature "Authenticated user creates a match-up", %Q{
-As an user,
-I want to create a match-up with a review
-so dat I can face these fools off
-}  do
+  As an user
+  I want to create a match-up
+  so dat I can face these fools off
+  }  do
 
   scenario "User makes a match-up" do
-
     visit new_matchup_path
     select "Pikachu", :from => "Character One"
     select "Sandshrew", :from => "Character Two"
