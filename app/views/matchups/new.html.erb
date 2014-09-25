@@ -1,5 +1,14 @@
 <%= form_for @matchup do |f| %>
 
+  <% if @matchup.errors.any? %>
+    <p><%= "#{@matchup.errors.count} prevented your matchup from being saved:" %></p>
+    <ul>
+      <% @matchup.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <%= f.label :character_id, "Character One" %>
   <%= f.collection_select :character_id, Character.all, :id, :name %>
 

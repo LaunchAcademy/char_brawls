@@ -16,6 +16,9 @@ class MatchupsController < ApplicationController
 
     if @matchup.save
       redirect_to matchups_path, notice: "The matchup has been created successfully."
+    else
+      flash[:notice] = "Your matchup could not be saved!"
+      render 'new'
     end
 
     # beacon = true

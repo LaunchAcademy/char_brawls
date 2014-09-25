@@ -19,14 +19,15 @@ feature "Authenticated user creates a match-up", %Q{
   end
 
   scenario "User can't choose the same char twice" do
+    character = FactoryGirl.create(:character)
 
-    matchup = FactoryGirl.create(:matchup)
-    visit new_matchup_path(matchup)
-    select "Pikachu", :from => "Character One"
-    select "Pikachu", :from => "Character Two"
+    visit new_matchup_path
+    select character.name, from: "Character One"
+    select character.name, from: "Character Two"
     click_on "Submit"
 
-    expect(page).to have_content "A matchup must have two different characters."
+    expect(page).to have_content "Your matchup could not be saved!"
+    expect(page).to have_content "Characters cannot battle themselves!"
   end
 
   scenario "User can't duplicate an existing match-up" do
