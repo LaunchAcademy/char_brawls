@@ -9,6 +9,7 @@ class Matchup < ActiveRecord::Base
     end
   end
 
+  has_many :opinions
   belongs_to :character
   belongs_to :opponent, class_name: "Character"
 end
