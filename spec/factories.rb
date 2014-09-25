@@ -9,9 +9,6 @@ FactoryGirl.define do
   factory :character do
     name "Pikachu"
     bio "This motherfuckers a real shocker!"
-
-    name "Sandshrew"
-    bio "Oh shit!"
   end
 
 end

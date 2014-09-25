@@ -6,13 +6,14 @@ feature "Authenticated user creates a match-up", %Q{
   }  do
 
   scenario "User makes a match-up" do
+    character = FactoryGirl.create(:character)
+    opponent = FactoryGirl.create(:character)
+
     visit root_path
     click_on "Create A Matchup"
-    select "Pikachu", :from => "Character One"
-    select "Sandshrew", :from => "Character Two"
+    select character.name, from: "Character One"
+    select opponent.name, from: "Character Two"
     click_on "Submit"
-
-    save_and_open_page
 
     expect(page).to have_content "The matchup has been created successfully."
   end
