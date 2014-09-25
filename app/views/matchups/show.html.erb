@@ -1,6 +1,6 @@
-  <a href="/characters/<%= @matchup.character.id %>"><p><%= @matchup.character %></a>vs<%= @matchup.opponent %></p>
+  <a href="/characters/<%= @matchup.character_id %>"><p><%= @matchup.character %></a>vs<%= @matchup.opponent %></p>
 
-<%= form_for new_matchup_review do |f| %>
+<%= form_for new_matchup_review_path do |f| %>
   <%= f.label :body %>
   <%= f.text_field :body %>
 

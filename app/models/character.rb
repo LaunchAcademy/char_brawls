@@ -3,3 +3,4 @@ class Character < ActiveRecord::Base
     presence: true,
     uniqueness: true
 end
+
