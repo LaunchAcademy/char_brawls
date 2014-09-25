@@ -12,18 +12,31 @@
   </head>
 
   <body>
-
+  <div class = "fixed">
+  <nav class = "top-bar">
+  <section>
+  <ul class = "nav-bar">
     <% if current_user %>
-      <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+      <li> <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
     <% end %>
 
 
     <% if !current_user %>
-      <%= link_to "Sign up", new_user_registration_path %>
-      <%= link_to "Sign in", new_user_session_path %>
+       <li> <%= link_to "Sign up", new_user_registration_path %></li>
+       <li><%= link_to "Sign in", new_user_session_path %></li>
     <% end %>
 
+    <li><%= link_to "Home", characters_path%></li>
+    <li><%= link_to "Characters", characters_path %></li>
+    <li class="search"><form><input type="search"></form></li>
+    </ul>
+    </section>
+    </nav>
+    </div>
+
     <%= yield %>
+
+
 
     <%if notice%>
       <p class="notice"><%= notice %></p>
