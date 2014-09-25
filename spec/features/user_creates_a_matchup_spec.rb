@@ -6,7 +6,8 @@ feature "Authenticated user creates a match-up", %Q{
   }  do
 
   scenario "User makes a match-up" do
-    visit new_matchup_path
+    visit root_path
+    click_on "Create A Matchup"
     select "Pikachu", :from => "Character One"
     select "Sandshrew", :from => "Character Two"
     click_on "Submit"
