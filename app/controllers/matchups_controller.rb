@@ -12,44 +12,56 @@ class MatchupsController < ApplicationController
   end
 
   def create
-    beacon = true
-    @matchup = Matchup.new
+    @matchup = Matchup.new(matchup_params)
 
-    @matchup.character_id = params[:matchup][:character_id]
-    @matchup.opponent_id = params[:matchup][:opponent_id]
-
-    if @matchup.character_id == @matchup.opponent_id
-      flash[:notice] = "A matchup must have two different characters."
-      redirect_to new_matchup_path
-
-    elsif @matchup.character_id == nil
-      flash[:notice] = "A matchup must have two different characters."
-      redirect_to new_matchup_path
-
-    elsif @matchup.opponent_id == nil
-      flash[:notice] = "A matchup must have two different characters."
-      redirect_to new_matchup_path
+    if @matchup.save
+      redirect_to matchups_path, notice: "The matchup has been created successfully."
     end
 
-    @badmatchup = Matchup.where(character_id: @matchup.opponent_id)
+    # beacon = true
+    # @matchup = Matchup.new
 
-    if !@badmatchup.empty?
-      if @badmatchup[0].opponent_id == @matchup.character_id
-        flash[:notice] = "That matchup already exists!"
+    # @matchup.character_id = params[:matchup][:character_id]
+    # @matchup.opponent_id = params[:matchup][:opponent_id]
 
-        @matchup.destroy
-        redirect_to new_matchup_path
-        beacon = false
-      end
-    end
+    # if @matchup.character_id == @matchup.opponent_id
+    #   flash[:notice] = "A matchup must have two different characters."
+    #   redirect_to new_matchup_path
 
-    if beacon
-      @matchup.save
-      redirect_to matchups_path
-    end
+    # elsif @matchup.character_id == nil
+    #   flash[:notice] = "A matchup must have two different characters."
+    #   redirect_to new_matchup_path
+
+    # elsif @matchup.opponent_id == nil
+    #   flash[:notice] = "A matchup must have two different characters."
+    #   redirect_to new_matchup_path
+    # end
+
+    # @badmatchup = Matchup.where(character_id: @matchup.opponent_id)
+
+    # if !@badmatchup.empty?
+    #   if @badmatchup[0].opponent_id == @matchup.character_id
+    #     flash[:notice] = "That matchup already exists!"
+
+    #     @matchup.destroy
+    #     redirect_to new_matchup_path
+    #     beacon = false
+    #   end
+    # end
+
+    # if beacon
+    #   @matchup.save
+    #   redirect_to matchups_path
+    # end
   end
 
   def new
     @matchup = Matchup.new
+  end
+
+  private
+
+  def matchup_params
+    params.require(:matchup).permit(:character_id, :opponent_id)
   end
 end
