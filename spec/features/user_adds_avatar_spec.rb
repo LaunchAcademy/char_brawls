@@ -19,5 +19,5 @@ feature 'user add an avatar', %Q(
       click_on "Sign up"
     end
     expect(page).to have_content(user.profile_photo)
-    end
+  end
 end
