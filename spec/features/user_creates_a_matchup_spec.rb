@@ -31,11 +31,11 @@ feature "Authenticated user creates a match-up", %Q{
   end
 
   scenario "User can't duplicate an existing match-up" do
-
     matchup = FactoryGirl.create(:matchup)
+
     visit new_matchup_path(matchup)
-    select "Pikachu", :from => "Character One"
-    select "Sandshrew", :from => "Character Two"
+    select matchup.character.name, from: "Character One"
+    select matchup.opponent.name, from: "Character Two"
     click_on "Submit"
 
     expect(page).to have_content "That matchup already exists!"

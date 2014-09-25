@@ -1,6 +1,12 @@
 class Matchup < ActiveRecord::Base
-  validates :character_id, presence: true
-  validates :opponent_id, presence: true, uniqueness: { scope: :character }
+  has_many :opinions
+  belongs_to :character
+  belongs_to :opponent, class_name: "Character"
+
+  validates :character, presence: true
+  validates :opponent,
+    presence: true,
+    uniqueness: { scope: :character, message: "That matchup already exists!" }
   validate :no_duplicate_characters
 
   def no_duplicate_characters
@@ -8,8 +14,4 @@ class Matchup < ActiveRecord::Base
       errors.add(:character_id, "Characters cannot battle themselves!")
     end
   end
-
-  has_many :opinions
-  belongs_to :character
-  belongs_to :opponent, class_name: "Character"
 end
