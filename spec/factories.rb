@@ -7,7 +7,7 @@ FactoryGirl.define do
     password "woooooooo2"
   end
 
-  factory :character do
+  factory :character, aliases: [:opponent] do
     sequence :name do |n|
       "#{n}Pikachu"
     end
@@ -17,7 +17,7 @@ FactoryGirl.define do
   end
 
   factory :matchup do
-    character_id 1
-    opponent_id 2
+    character
+    opponent
   end
 end

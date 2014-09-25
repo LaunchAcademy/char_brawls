@@ -1,2 +1,10 @@
 <%= @character.name %>
 <%= @character.body %>
+
+<h3><%= "#{@character.name} has battled:"%></h3>
+
+<ul>
+  <% @character.matchups.each do |matchup| %>
+    <li><%= matchup.opponent.name %></li>
+  <% end %>
+</ul>
