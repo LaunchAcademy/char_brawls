@@ -31,6 +31,7 @@ feature "Authenticated user creates a opinion", %{
     scenario "User can't submit an empty opinion" do
       matchup = FactoryGirl.create(:matchup)
       visit matchup_path(matchup)
+      choose 'opinion_winner_id_' + matchup.character.id.to_s
       click_on "Create Opinion"
       expect(page).to have_content "The opinion can't be empty!"
     end
@@ -41,7 +42,7 @@ feature "Authenticated user creates a opinion", %{
 
       visit matchup_path(matchup)
       fill_in "Battle Notes", with: "I think that link is gonna kick that ass!"
-
+      choose 'opinion_winner_id_' + matchup.character.id.to_s
       click_on "Create Opinion"
       expect(page).to have_content "That opinion already exists!"
   end
@@ -51,6 +52,7 @@ end
      matchup = FactoryGirl.create(:matchup)
      visit matchup_path(matchup)
      fill_in "Battle Notes", with: "I think that link is gonna kick that ass!"
+     choose 'opinion_winner_id_' + matchup.character.id.to_s
      click_on "Create Opinion"
      expect(page).to have_content "You need to sign in or sign up before continuing."
   end

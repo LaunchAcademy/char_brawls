@@ -14,11 +14,10 @@ class Matchup < ActiveRecord::Base
     opp_count = 0
 
     self.opinions.each do |opinion|
-      if opinion.winner_id == self.character.id
+      if opinion.winner_id == character.id
         char_count += 1
-      end
 
-      if opinion.winner_id == self.opponent.id
+      elsif opinion.winner_id == opponent.id
         opp_count += 1
       end
     end
@@ -38,3 +37,4 @@ class Matchup < ActiveRecord::Base
     end
   end
 end
+

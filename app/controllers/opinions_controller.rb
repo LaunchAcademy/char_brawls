@@ -1,7 +1,6 @@
 class OpinionsController < ApplicationController
-   before_filter :authenticate_user!, except: [:index, :show]
-   before_action :authenticate_user!
-
+    before_filter :authenticate_user!, except: [:index,:show]
+    before_filter :authorize_user!, except: [:index, :new, :show, :create]
 
   def index
     @opinions = Opinion.all
@@ -31,6 +30,12 @@ class OpinionsController < ApplicationController
   private
   def opinion_params
     params.require(:opinion).permit(:body, :winner_id) #.merge(matchup_id: params[:matchup_id])
+  end
+
+   def authorize_user
+    unless user_signed_in? and current_user.admin?
+      raise ActionController::RoutingError.new('Not Found')
+    end
   end
 end
 

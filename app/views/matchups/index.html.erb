@@ -4,9 +4,13 @@
 
   <%= link_to "#{matchup.character.name} vs. #{matchup.opponent.name}", matchup_path(matchup) %>
 
-  <br>
-
+  <%if current_user %>
+    <% if current_user.admin? %>
+      <%= link_to "Delete!", matchup_path(matchup), method: :delete %>
+    <% end %>
+  <% end %>
 <% end %>
+
 
 
 <%= link_to "Create a matchup", new_matchup_path %>

@@ -5,6 +5,12 @@ feature "Authenticated user creates a match-up", %Q{
   so dat I can face these fools off
   }  do
 
+   context "authenticated user" do
+    before (:each) do
+      user = FactoryGirl.create(:user)
+      sign_in_as(user)
+    end
+
   scenario "User makes a match-up" do
     character = FactoryGirl.create(:character)
     opponent = FactoryGirl.create(:character)
@@ -51,4 +57,5 @@ feature "Authenticated user creates a match-up", %Q{
     expect(page).to have_content "Character can't be blank"
     expect(page).to have_content "Opponent can't be blank"
   end
+end
 end

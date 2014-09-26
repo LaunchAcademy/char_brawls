@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   devise_for :users, path_names: { sign_out:'sign_out' }
 
   resources :matchups do
-    resources :opinions, only: [:new, :create]
+    resources :opinions, only: [:new, :create, :destroy]
   end
 
   root to: 'characters#index'
 
-  resources :characters, only: [:index, :show]
+  resources :characters, only: [:index, :show, :destroy]
 end
