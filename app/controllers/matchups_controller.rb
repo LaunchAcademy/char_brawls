@@ -1,4 +1,6 @@
 class MatchupsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @matchups = Matchup.all
   end

@@ -14,16 +14,17 @@
   <body>
     <%= flash[:notice] %>
 
-    <ul>
-      <li><%= link_to "Create A Matchup", new_matchup_path %></li>
-    </ul>
+      <ul>
+
 
     <% if current_user %>
-      <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+        <li><%= link_to "Create A Matchup", new_matchup_path %></li>
+      <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
     <% else %>
-      <%= link_to "Sign up", new_user_registration_path %>
-      <%= link_to "Sign in", new_user_session_path %>
+      <li><%= link_to "Sign up", new_user_registration_path %></li>
+      <li><%= link_to "Sign in", new_user_session_path %></li>
     <% end %>
+      </ul>
 
     <%= yield %>
 
