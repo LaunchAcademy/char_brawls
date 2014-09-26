@@ -1,2 +1,33 @@
-<%= @character.name%>
-<img src = "http://<%= @character.photo%>"/>
+<h1 class = "title"><%= @character.name%></h1>
+<img src = "http://<%= @character.photo%>" alt = "Pokemon" height = "250" width = "250"/>
+
+<table role = "grid">
+<tr>
+<td width = "50">Type</td>
+<td width="100"><%= @traits["type"] %></td>
+</tr>
+<tr>
+<td width = "50">Abilities</td>
+<td width="100"><%= @traits["abilities"] %> </td>
+</tr>
+<tr>
+<td  width = "50">Attack</td>
+<td width="100"><%= @traits["attack"] %></td>
+</tr>
+<tr>
+<td width = "50">Defense</td>
+<td width="100"><%= @traits["defense"] %></td>
+</tr>
+<tr>
+<td width = "50">Special Attack</td>
+<td width="100"><%= @traits["special_attack"] %></td>
+</tr>
+<tr>
+<td width = "50">Special Defense</td>
+<td width="100"><%= @traits["special_defense"] %></td>
+</tr>
+<tr>
+<td width = "50">Speed</td>
+<td width="100"><%= @traits["speed"] %></td>
+</tr>
+</table>
