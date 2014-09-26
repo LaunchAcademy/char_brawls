@@ -7,8 +7,9 @@
   <%if @character.matchups.length == 0 %>
     <li>No one yet</li>
   <%end%>
- </ul>
- <ul>
+</ul>
+
+<ul>
   <% @character.matchups.each do |matchup| %>
     <li><%= link_to matchup.opponent.name, matchup_path(matchup) %></li>
   <% end %>

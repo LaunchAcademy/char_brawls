@@ -11,7 +11,14 @@
   <% end %>
 <% end %>
 
-
-
 <%= link_to "Create a matchup", new_matchup_path %>
 
+<%= form_tag(matchups_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search matchups" %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+
+<% if !params[:search] %>
+  <%= paginate @matchups %>
+<% end %>

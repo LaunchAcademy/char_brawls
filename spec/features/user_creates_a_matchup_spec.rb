@@ -5,7 +5,7 @@ feature "Authenticated user creates a match-up", %Q{
   so dat I can face these fools off
   }  do
 
-   context "authenticated user" do
+  context "authenticated user" do
     before (:each) do
       user = FactoryGirl.create(:user)
       sign_in_as(user)

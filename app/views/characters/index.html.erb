@@ -11,3 +11,12 @@
 
   <%end%>
 </ul>
+
+<%= form_tag(characters_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search characters" %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<% if !params[:search] %>
+  <%= paginate @characters %>
+<% end %>

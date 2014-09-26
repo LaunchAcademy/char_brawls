@@ -1,9 +1,13 @@
 class CharactersController < ApplicationController
-   before_filter :authenticate_user!, except: [:index,:show]
-   before_filter :authorize_user!, except: [:index, :new, :show, :create]
+  before_filter :authenticate_user!, except: [:index,:show]
+  before_filter :authorize_user!, except: [:index, :new, :show, :create]
 
-  def index
-    @characters = Character.all
+ def index
+    if params[:search]
+      @characters = Character.search(params[:search]).order("created_at DESC")
+    else
+      @characters = Character.page(params[:page]).per(10)
+    end
   end
 
   def show
@@ -17,8 +21,8 @@ class CharactersController < ApplicationController
   end
 
   def authorize_user
-    unless user_signed_in? and current_user.admin?
-      raise ActionController::RoutingError.new('Not Found')
+    unless user_signed_in? && current_user.admin?
+      raise ActionController::RoutingError.new("Not Found")
     end
   end
 end

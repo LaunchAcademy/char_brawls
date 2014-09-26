@@ -21,9 +21,9 @@ FactoryGirl.define do
     opponent
   end
 
-    factory :opinion do
-      body "I think that link is gonna kick that ass!"
-      winner_id 1
-      matchup_id 1000
+  factory :opinion do
+    body "I think that link is gonna kick that ass!"
+    matchup
+    winner {matchup.character}
   end
 end
