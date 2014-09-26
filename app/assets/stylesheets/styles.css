@@ -1,7 +1,7 @@
 .top-bar {
-    background: #FF0000;
-    height: 58px;
-    line-height: 58px;
+    background: red;
+    height: 42px;
+    line-height: 42px;
 div.image:before {
    content:url(http://img3.wikia.nocookie.net/__cb20130901024704/clubpenguin/images/4/4c/Pokeball.png);
 }
