@@ -1,4 +1,6 @@
 class OpinionsController < ApplicationController
+before_filter :authenticate_user!
+
   def index
     @opinions = Opinion.all
   end
@@ -12,15 +14,23 @@ class OpinionsController < ApplicationController
   end
 
   def create
-    @opinion = Opinion.new
+    @opinion = Opinion.new(opinion_params)
+    @matchup = Matchup.find(params[:matchup_id])
+    @opinion.matchup = @matchup
 
-    @opinion.body = params[:opinion][:body]
-    @opinion.vote = params[:opinion][:vote]
-    @opinion.matchup_id = params[:matchup_id]
+    if @opinion.save
+      redirect_to matchup_path(@matchup), notice: "The opinion has been created successfully."
+    else
+      render 'matchups/show'
+    end
 
-    @opinion.save
+  end
 
-    @matchup = Matchup.find(@opinion.matchup_id)
-    redirect_to matchup_path(@matchup)
+  private
+  def opinion_params
+    params.require(:opinion).permit(:body, :winner_id) #.merge(matchup_id: params[:matchup_id])
   end
 end
+
+
+

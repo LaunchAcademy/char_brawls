@@ -42,7 +42,7 @@ feature "Authenticated user creates a match-up", %Q{
   end
 
   scenario "User does not select characters" do
-    characters = FactoryGirl.create_list(:character, 2)
+    FactoryGirl.create_list(:character, 2)
     visit new_matchup_path
 
     click_on "Submit"

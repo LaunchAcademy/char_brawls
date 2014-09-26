@@ -5,7 +5,7 @@ feature 'user wants to see character details', %{
 
   scenario 'user can view character details' do
     character = FactoryGirl.create(:character)
-    matchups = FactoryGirl.create_list(:matchup, 3, character: character)
+    FactoryGirl.create_list(:matchup, 3, character: character)
     visit character_path(character)
 
     expect(page).to have_content character.name

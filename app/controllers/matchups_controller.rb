@@ -1,5 +1,3 @@
-require 'opinions_controller'
-
 class MatchupsController < ApplicationController
   def index
     @matchups = Matchup.all
@@ -8,7 +6,6 @@ class MatchupsController < ApplicationController
   def show
     @matchup = Matchup.find(params[:id])
     @opinion = Opinion.new
-
   end
 
   def create
