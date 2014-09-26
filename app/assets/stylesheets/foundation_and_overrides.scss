@@ -255,7 +255,7 @@ $primary-color: white;
 
 // We use these to style anchors
 // $anchor-text-decoration: none;
-$anchor-text-decoration-hover: white;
+//$anchor-text-decoration-hover: white;
 // $anchor-font-color: $primary-color;
 // $anchor-font-color-hover: scale-color($primary-color, $lightness: -14%);
 
@@ -1441,3 +1441,4 @@ $anchor-text-decoration-hover: white;
 // $include-accessibility-classes: true;
 
 @import 'foundation';
+@import 'styles.css'
