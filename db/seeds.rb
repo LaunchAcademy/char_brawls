@@ -34,7 +34,7 @@ pokemon.each do |creature|
 end
 
 n = 1
-while n < 778
+while n < 719
   query = Net::HTTP.get("pokeapi.co", "/api/v1/sprite/#{n}/")
   pokemon = JSON.parse(query)
   (pokemon["pokemon"]["resource_uri"]).slice!(0)
