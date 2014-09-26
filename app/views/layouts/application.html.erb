@@ -12,9 +12,12 @@
   </head>
 
   <body>
+
     <%= flash[:notice] %>
 
       <ul>
+      <li><%=link_to "View all matchups", matchups_path%></li>
+      <li><%=link_to "View all characters", characters_path%></li>
 
 
     <% if current_user %>

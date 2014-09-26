@@ -1,6 +1,7 @@
 class OpinionsController < ApplicationController
-  before_action :authenticate_user!
-  before_filter :authenticate_user!
+   before_filter :authenticate_user!, except: [:index, :show]
+   before_action :authenticate_user!
+
 
   def index
     @opinions = Opinion.all

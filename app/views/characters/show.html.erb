@@ -4,7 +4,12 @@
 <h3><%= "#{@character.name} has battled:"%></h3>
 
 <ul>
+<%if @character.matchups.length == 0 %>
+  <li>No one yet</li>
+  <%end%>
   <% @character.matchups.each do |matchup| %>
-    <li><%= matchup.opponent.name %></li>
+    <li><%= link_to matchup.opponent.name, matchup_path(matchup) %></li>
   <% end %>
 </ul>
+
+<li><%=link_to "Go back to view all characters", characters_path%></li>
