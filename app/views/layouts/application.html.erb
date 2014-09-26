@@ -23,17 +23,22 @@
 
     <% if !current_user %>
 
+<font size="5"><a href="http://localhost:3000/characters"> <img src="http://img3.wikia.nocookie.net/__cb20130901024704/clubpenguin/images/4/4c/Pokeball.png"height="42" width="42" align = "left"></a>
+
     <ul class="left">
       <li>
+
         <a href="#">
-          <font size="5"><%= link_to "Home", characters_path%></font>
-          <font size="5"><%="|"%> </font>
+        <font size="5"><%= link_to "Home", characters_path%></font>
+        <font size="5"><%="|"%> </font>
           <font size="5"><%= link_to "Characters", characters_path%></font>
           <font size="5"><%="|"%> </font>
           <font size="5"><%= link_to "Matchups", characters_path%></font>
         </a>
       </li>
     </ul>
+
+
 
     <ul class="right">
       <li>
