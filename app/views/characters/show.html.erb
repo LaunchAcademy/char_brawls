@@ -1,33 +1,33 @@
 <h1 class = "title"><%= @character.name%></h1>
-<img id = "pokemon" src = "http://<%= @character.photo%>" alt = "Pokemon" height = "250" width = "250"/>
+<img id = "pokemon" src = "http://<%= @character.photo%>" alt = "Pokemon" height = "270" width = "270"/>
 
-<table role = "grid">
+<table style = "width:220px">
 <tr>
-<td width = "50">Type</td>
-<td width="100"><%= @traits["type"] %></td>
+<td id = "odd"width = "70" id = "table-label">Type</td>
+<td id = "odd" width="150"><%= @traits["type"] %></td>
 </tr>
 <tr >
-<td class = "even", width = "50">Abilities</td>
-<td class = "even",width="100"><%= @traits["abilities"] %> </td>
+<td id = "table-label", width = "70">Abilities</td>
+<td width="150"><%= @traits["abilities"] %> </td>
 </tr>
 <tr>
-<td  width = "50">Attack</td>
-<td width="100"><%= @traits["attack"] %></td>
+<td id = "odd"  width = "70" id = "table-label">Attack</td>
+<td  id = "odd"width="150"><%= @traits["attack"] %></td>
 </tr>
 <tr>
-<td class = "even" width = "50">Defense</td>
-<td class = "even" width="100"><%= @traits["defense"] %></td>
+<td  id = "table-label" width = "70">Defense</td>
+<td  width="150"><%= @traits["defense"] %></td>
 </tr>
 <tr>
-<td width = "50">Special Attack</td>
-<td width="100"><%= @traits["special_attack"] %></td>
+<td id= "odd" width = "70">Special Attack</td>
+<td id = "odd" width="150"><%= @traits["special_attack"] %></td>
 </tr>
 <tr>
-<td class = "even" width = "50">Special Defense</td>
-<td class = "even" width="100"><%= @traits["special_defense"] %></td>
+<td  id = "table-label" width = "70">Special Defense</td>
+<td  width="150"><%= @traits["special_defense"] %></td>
 </tr>
 <tr>
-<td width = "50">Speed</td>
-<td width="100"><%= @traits["speed"] %></td>
+<td id = "odd" width = "70">Speed</td>
+<td  id = "odd" width="150"><%= @traits["speed"] %></td>
 </tr>
 </table>
