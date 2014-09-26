@@ -1,0 +1,24 @@
+<br>
+
+<% @matchups.each do |matchup| %>
+
+  <%= link_to "#{matchup.character.name} vs. #{matchup.opponent.name}", matchup_path(matchup) %>
+
+  <%if current_user %>
+    <% if current_user.admin? %>
+      <%= link_to "Delete!", matchup_path(matchup), method: :delete %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= link_to "Create a matchup", new_matchup_path %>
+
+<%= form_tag(matchups_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search matchups" %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+
+<% if !params[:search] %>
+  <%= paginate @matchups %>
+<% end %>

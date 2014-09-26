@@ -1,16 +1,16 @@
 require 'rails_helper'
 feature 'user wants to see character details', %{
   As an user, I want to see information about my character
-}  do
+  }  do
 
   scenario 'user can view character details' do
-    character1 = FactoryGirl.create(:character)
-    visit character_path(character1)
-    expect(page).to have_content character1.name
-  end
+    character = FactoryGirl.create(:character)
+    FactoryGirl.create_list(:matchup, 3, character: character)
+    visit character_path(character)
 
-  scenario "must link to individual matchups" do
-    visit character_path(character1)
-    expect(page).to have_content character.matchups
+    expect(page).to have_content character.name
+    character.matchups.each do |matchup|
+      expect(page).to have_content matchup.opponent.name
+    end
   end
 end
