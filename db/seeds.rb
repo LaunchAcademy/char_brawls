@@ -36,11 +36,11 @@ end
 
 n = 1
 while n < 778
-query = Net::HTTP.get("pokeapi.co", "/api/v1/sprite/#{n}/")
-pokemon = JSON.parse(query)
-uri = (pokemon["pokemon"]["resource_uri"]).slice!(0)
-choice = Character.find_by(resource_uri:"#{pokemon["pokemon"]["resource_uri"]}")
-choice.photo = "pokeapi.co#{pokemon["image"]}"
-choice.save
-n +=1
+  query = Net::HTTP.get("pokeapi.co", "/api/v1/sprite/#{n}/")
+  pokemon = JSON.parse(query)
+  uri = (pokemon["pokemon"]["resource_uri"]).slice!(0)
+  choice = Character.find_by(resource_uri:"#{pokemon["pokemon"]["resource_uri"]}")
+  choice.photo = "pokeapi.co#{pokemon["image"]}"
+  choice.save
+  n +=1
 end
