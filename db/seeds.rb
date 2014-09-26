@@ -32,8 +32,10 @@ creature_attrs = {
   }
   Character.find_or_create_by(creature_attrs)
 end
+
+
 n = 1
-while n < 779
+while n < 778
 query = Net::HTTP.get("pokeapi.co", "/api/v1/sprite/#{n}/")
 pokemon = JSON.parse(query)
 uri = (pokemon["pokemon"]["resource_uri"]).slice!(0)
