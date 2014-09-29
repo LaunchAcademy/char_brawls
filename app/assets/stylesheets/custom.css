@@ -23,3 +23,16 @@ td{
   font-family: Arial;
   font-size: 100px;
 }
+.stats{
+  display: inline-block;
+  width: 900px;
+  margin-bottom: 100px;
+}
+.competition{
+  float:left;
+  margin-left: 300px;
+}
+
+.opponent{
+  float:right;
+}

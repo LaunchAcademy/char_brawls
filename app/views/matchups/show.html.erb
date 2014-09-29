@@ -1,5 +1,6 @@
-<a href="/characters/<%= @matchup.character_id %>"><p><%= @matchup.character.name %></a> vs. <a href="/characters/<%= @matchup.opponent_id %>"><%= @matchup.opponent.name %></p></a>
-
+<h1><a href="/characters/<%= @matchup.character_id %>"><p><%= @matchup.character.name %></a> vs. <a href="/characters/<%= @matchup.opponent_id %>"><%= @matchup.opponent.name %></p></a></h1>
+<div class = "stats">
+<div class = "competition">
 <h1 class = "title"><%= @matchup.character.name%></h1>
 <img id = "pokemon" src = "http://<%= @matchup.character.photo%>" alt = "Pokemon" height = "270" width = "270"/>
 
@@ -33,8 +34,8 @@
 <td class = "odd" width="150"><%= @char_trait["speed"] %></td>
 </tr>
 </table>
-
-
+</div>
+<div class = "opponent">
 <h1 class = "title"><%= @matchup.opponent.name%></h1>
 <img id = "pokemon" src = "http://<%= @matchup.opponent.photo%>" alt = "Pokemon" height = "270" width = "270"/>
 
@@ -68,8 +69,8 @@
 <td class = "odd" width="150"><%= @opp_trait["speed"] %></td>
 </tr>
 </table>
-
-
+</div>
+</div>
 
 
 
