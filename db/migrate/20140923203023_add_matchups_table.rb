@@ -6,7 +6,6 @@ class AddMatchupsTable < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :matchups, [:char_one, :char_two], :unique => true
-
+    add_index :matchups, [:char_one, :char_two], unique: true
   end
 end

@@ -4,7 +4,12 @@ class Matchup < ActiveRecord::Base
   belongs_to :opponent, class_name: "Character"
 
   validates :character, presence: true
-  validates :opponent, presence: true, uniqueness: { scope: :character, message: "That matchup already exists!" }
+  validates :opponent,
+    presence: true,
+    uniqueness: {
+      scope: :character,
+      message: "That matchup already exists!"
+    }
   validate :no_duplicate_characters
 
   def tabulate
@@ -20,9 +25,9 @@ class Matchup < ActiveRecord::Base
     end
 
     if char_count > opp_count
-      "#{character.name} is winning by #{char_count-opp_count}."
+      "#{character.name} is winning by #{char_count - opp_count}."
     elsif opp_count > char_count
-      "#{opponent.name} is winning by #{opp_count-char_count}."
+      "#{opponent.name} is winning by #{opp_count - char_count}."
     else
       'No Contest!'
     end
@@ -37,5 +42,4 @@ class Matchup < ActiveRecord::Base
   # def self.search(query)
   #   where(" like?", "%#{query}")
   # end
-
 end

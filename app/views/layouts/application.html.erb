@@ -15,10 +15,9 @@
 
     <%= flash[:notice] %>
 
-      <ul>
+    <ul>
       <li><%=link_to "View all matchups", matchups_path%></li>
       <li><%=link_to "View all characters", characters_path%></li>
-
 
     <% if current_user %>
       <li><%= link_to "Create A Matchup", new_matchup_path %></li>

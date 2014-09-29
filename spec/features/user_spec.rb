@@ -9,7 +9,6 @@ feature "Is the member an admin", %Q{
     expect(user).to_not be_admin
   end
 
-
   it 'Is an admin if the role is admin' do
     user = User.new(role: "admin")
     expect(user).to be_admin
