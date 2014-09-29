@@ -3,8 +3,12 @@
     height: 44px;
     h: red;
     line-height: 44px;
-
   }
+#search-form
+{
+    width:200px;
+}
 div.image:before {
    content:url(http://img3.wikia.nocookie.net/__cb20130901024704/clubpenguin/images/4/4c/Pokeball.png);
 }
+

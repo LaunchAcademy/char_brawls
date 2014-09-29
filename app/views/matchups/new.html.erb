@@ -1,0 +1,21 @@
+<h1><br>Matchup<br></h1>
+<%= form_for @matchup do |f| %>
+
+  <% if @matchup.errors.any? %>
+    <p><%= "#{@matchup.errors.count} prevented your matchup from being saved:" %></p>
+    <ul>
+      <% @matchup.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= f.label :character_id, "Character One" %>
+  <%= f.collection_select :character_id, Character.all, :id, :name, include_blank: true %>
+
+  <%= f.label :opponent_id, "Character Two" %>
+  <%= f.collection_select :opponent_id, Character.all, :id, :name, include_blank: true %>
+
+  <%= f.submit "Submit" %>
+
+<% end %>
