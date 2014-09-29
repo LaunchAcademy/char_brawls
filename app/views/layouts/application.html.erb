@@ -21,7 +21,7 @@
 
 
     <% if current_user %>
-        <li><%= link_to "Create A Matchup", new_matchup_path %></li>
+      <li><%= link_to "Create A Matchup", new_matchup_path %></li>
       <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
     <% else %>
       <li><%= link_to "Sign up", new_user_registration_path %></li>
