@@ -40,6 +40,6 @@ class Matchup < ActiveRecord::Base
   end
 
   # def self.search(query)
-  #   where(" like?", "%#{query}")
+  #   where("character_id like ?", "%#{query}%")
   # end
 end
