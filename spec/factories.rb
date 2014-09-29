@@ -14,7 +14,6 @@ FactoryGirl.define do
     sequence :resource_uri do |n|
       "#{n}api/v1/pokemon/"
     end
-    body "Electric Pokemon"
   end
 
   factory :matchup do

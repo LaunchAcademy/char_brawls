@@ -13,6 +13,8 @@ class MatchupsController < ApplicationController
   def show
     @matchup = Matchup.find(params[:id])
     @opinion = Opinion.new
+    @char_trait = JSON.parse(@matchup.character.body)
+    @opp_trait = JSON.parse(@matchup.opponent.body)
   end
 
   def create
