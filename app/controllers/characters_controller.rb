@@ -2,7 +2,7 @@ class CharactersController < ApplicationController
   before_filter :authenticate_user!, except: [:index,:show]
   before_filter :authorize_user!, except: [:index, :new, :show, :create]
 
- def index
+  def index
     if params[:search]
       @characters = Character.search(params[:search]).order("created_at DESC")
     else
