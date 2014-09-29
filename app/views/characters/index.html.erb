@@ -2,5 +2,18 @@
 <ul>
   <% @characters.each do |character| %>
     <li><%= link_to character.name, character_path(character) %></li>
+
+    <% if current_user && current_user.admin? %>
+      <%= link_to "Delete!", character_path(character), method: :delete %>
+    <% end %>
   <%end%>
 </ul>
+
+<%= form_tag(characters_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search characters" %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<% if !params[:search] %>
+  <%= paginate @characters %>
+<% end %>

@@ -1,0 +1,37 @@
+<a href="/characters/<%= @matchup.character_id %>"><p><%= @matchup.character.name %></a> vs. <a href="/characters/<%= @matchup.opponent_id %>"><%= @matchup.opponent.name %></p></a>
+
+<ul>
+<% @matchup.opinions.each do |opinion| %>
+  <li><%= opinion.body %></li>
+<% end %>
+</ul>
+
+<%= form_for [@matchup, @opinion] do |f| %>
+  <%= f.label :body, "Battle Notes" %>
+  <%= f.text_field :body %>
+
+  <%= f.label :vote, "Choose The Winner!" %>
+
+  <%= radio_button(:opinion, :winner_id, @matchup.character.id) %><%= @matchup.character.name %>
+  <%= radio_button(:opinion, :winner_id, @matchup.opponent.id) %><%= @matchup.opponent.name %>
+
+  <br>
+
+  <%= f.submit %>
+
+  <% if @opinion.errors.full_messages.any? %>
+    <% @opinion.errors.full_messages.each do |err| %>
+      <%= err %>
+      <br>
+    <% end %>
+  <% end %>
+
+  <br>
+<% end %>
+
+<%=@matchup.tabulate%>
+
+<br>
+<br>
+
+<%= link_to "Go Back", matchups_path %>

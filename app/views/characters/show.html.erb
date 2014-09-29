@@ -31,3 +31,19 @@
 <td class = "odd" width="150"><%= @traits["speed"] %></td>
 </tr>
 </table>
+
+
+<h3><%= "#{@character.name} has battled:"%></h3>
+
+<ul>
+  <%if @character.matchups.length == 0 %>
+    <li>No one yet</li>
+  <%else %>
+    <% @character.matchups.each do |matchup| %>
+      <li><%= link_to matchup.opponent.name, matchup_path(matchup) %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<li><%=link_to "Go back to view all characters", characters_path%></li>
+

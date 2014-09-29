@@ -1,4 +1,5 @@
 FactoryGirl.define do
+
   factory :user do
     first_name "Humphrey"
     last_name "Bogart"
@@ -6,7 +7,7 @@ FactoryGirl.define do
     password "woooooooo2"
   end
 
-  factory :character do
+  factory :character, aliases: [:opponent] do
     sequence :name do |n|
       "#{n}Pikachu"
     end
@@ -14,5 +15,16 @@ FactoryGirl.define do
       "#{n}api/v1/pokemon/"
     end
     body "Electric Pokemon"
+  end
+
+  factory :matchup do
+    character
+    opponent
+  end
+
+  factory :opinion do
+    body "I think that link is gonna kick that ass!"
+    matchup
+    winner { matchup.character }
   end
 end
