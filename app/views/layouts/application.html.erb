@@ -7,33 +7,54 @@
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
     <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag "stylesheets/styles.css"%>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
 
+    <div class = "fixed">
+      <nav class = "top-bar">
+        <section class = "nav-bar top-bar-section">
+          <font size="5"><a href="http://localhost:3000/characters"> <img src="http://img3.wikia.nocookie.net/__cb20130901024704/clubpenguin/images/4/4c/Pokeball.png"height="42" width="42" align = "left"></a>
+
+          <ul class="left">
+            <li><font size="5"><%= link_to "Home", characters_path%></font></li>
+            <li><font size="5"><%= link_to "Characters", characters_path%></font></li>
+            <li><font size="5"><%= link_to "Matchups", matchups_path%></font></li>
+          </ul>
+            <ul>
+            <% if current_user %>
+              <li><font size="5"><%=link_to "Create A Matchup", new_matchup_path%></font></li>
+            <% end %>
+            </ul>
+
+          <ul class="right">
+            <li>
+              <a href="#">
+                <% if current_user %>
+                  <li> <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+                <% else %>
+                  <font size="5"><%= link_to "Sign in", new_user_session_path%>
+                  <font size="5"><%= link_to "Sign up", new_user_registration_path%>
+                <% end %>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </nav>
+    </div>
     <%= flash[:notice] %>
 
-    <ul>
-      <li><%=link_to "View all matchups", matchups_path%></li>
-      <li><%=link_to "View all characters", characters_path%></li>
 
-      <% if current_user %>
-        <li><%= link_to "Create A Matchup", new_matchup_path %></li>
-        <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
-      <% else %>
-        <li><%= link_to "Sign up", new_user_registration_path %></li>
-        <li><%= link_to "Sign in", new_user_session_path %></li>
-      <% end %>
-    </ul>
+
 
     <%= yield %>
 
     <%if notice%>
       <p class="notice"><%= notice %></p>
     <%end%>
-
     <%if%>
        <p class="alert"><%= alert %></p>
     <%end%>
