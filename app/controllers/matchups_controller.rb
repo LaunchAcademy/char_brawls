@@ -19,7 +19,6 @@ class MatchupsController < ApplicationController
 
   def create
     @matchup = Matchup.new(matchup_params)
-
     if @matchup.save
       redirect_to matchups_path, notice: "The matchup has been created successfully."
     else

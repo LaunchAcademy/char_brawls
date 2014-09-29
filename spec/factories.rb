@@ -14,6 +14,7 @@ FactoryGirl.define do
     sequence :resource_uri do |n|
       "#{n}api/v1/pokemon/"
     end
+    body "{\"type\":\"poison\",\"abilities\":\"shed-skin\",\"attack\":25,\"defense\":50,\"special_attack\":25,\"special_defense\":25,\"speed\":35}"
   end
 
   factory :matchup do
