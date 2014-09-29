@@ -24,6 +24,6 @@ FactoryGirl.define do
   factory :opinion do
     body "I think that link is gonna kick that ass!"
     matchup
-    winner {matchup.character}
+    winner { matchup.character }
   end
 end
