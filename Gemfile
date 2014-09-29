@@ -31,6 +31,7 @@ gem 'spring',        group: :development
 
 gem 'foundation-rails'
 gem 'devise'
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'rspec-rails'
