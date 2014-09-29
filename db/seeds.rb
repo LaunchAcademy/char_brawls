@@ -15,6 +15,8 @@ pokemon = JSON.parse(results)["pokemon"]
 pokemon.each do |creature|
   character_data = Net::HTTP.get("pokeapi.co", "/#{creature["resource_uri"]}")
   data = JSON.parse(character_data)
+
+
   creature_attrs = {
     name: creature["name"],
     body: {
@@ -25,11 +27,19 @@ pokemon.each do |creature|
       special_attack: data["sp_atk"],
       special_defense: data["sp_def"],
       speed: data["speed"]
-    }.to_s,
+    }.to_json,
     resource_uri: creature["resource_uri"]
   }
   Character.find_or_create_by(creature_attrs)
 end
 
-
-
+n = 1
+while n < 719
+  query = Net::HTTP.get("pokeapi.co", "/api/v1/sprite/#{n}/")
+  pokemon = JSON.parse(query)
+  (pokemon["pokemon"]["resource_uri"]).slice!(0)
+  choice = Character.find_by(resource_uri:"#{pokemon["pokemon"]["resource_uri"]}")
+  choice.photo = "pokeapi.co#{pokemon["image"]}"
+  choice.save
+  n += 1
+end
