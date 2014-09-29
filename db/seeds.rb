@@ -25,7 +25,7 @@ pokemon.each do |creature|
       special_attack: data["sp_atk"],
       special_defense: data["sp_def"],
       speed: data["speed"]
-    }.to_s,
+    }.to_json,
     resource_uri: creature["resource_uri"]
   }
   Character.find_or_create_by(creature_attrs)

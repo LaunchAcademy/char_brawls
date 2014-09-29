@@ -3,7 +3,9 @@ FactoryGirl.define do
   factory :user do
     first_name "Humphrey"
     last_name "Bogart"
-    email "crazyemail@something.gov"
+    sequence :email do |n|
+      "#{n}crazyemail@something.gov"
+    end
     password "woooooooo2"
   end
 
@@ -24,6 +26,7 @@ FactoryGirl.define do
   factory :opinion do
     body "I think that link is gonna kick that ass!"
     matchup
+    user
     winner { matchup.character }
   end
 end
