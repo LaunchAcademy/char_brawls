@@ -1,4 +1,4 @@
-<h1><a href="/characters/<%= @matchup.character_id %>"><p><%= @matchup.character.name %></a> vs. <a href="/characters/<%= @matchup.opponent_id %>"><%= @matchup.opponent.name %></p></a></h1>
+<h1 style = "text-align: center"><a href="/characters/<%= @matchup.character_id %>"><%= @matchup.character.name %></a> vs. <a href="/characters/<%= @matchup.opponent_id %>"><%= @matchup.opponent.name %></a></h1>
 <div class = "stats">
 <div class = "competition">
 <h1 class = "title"><%= @matchup.character.name%></h1>
@@ -72,7 +72,7 @@
 </div>
 </div>
 
-
+<h1 style = "text-align: center"><%=@matchup.tabulate%></h1>
 
 <ul>
 <% @matchup.opinions.each do |opinion| %>
@@ -102,8 +102,6 @@
 
   <br>
 <% end %>
-
-<%=@matchup.tabulate%>
 
 <br>
 <br>
