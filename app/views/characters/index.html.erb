@@ -1,4 +1,5 @@
-<h1>Character Choice </h1>
+<h1><br>Character Choice<br></h1>
+
 <ul>
   <% @characters.each do |character| %>
     <li><%= link_to character.name, character_path(character) %></li>
@@ -9,11 +10,13 @@
   <%end%>
 </ul>
 
+
 <%= form_tag(characters_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search characters" %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search characters"%>
   <%= submit_tag "Search", :name => nil %>
 <% end %>
 
 <% if !params[:search] %>
-  <%= paginate @characters %>
-<% end %>
+  <br><%= paginate @characters %><br>
+<br><% end %><br>
+
