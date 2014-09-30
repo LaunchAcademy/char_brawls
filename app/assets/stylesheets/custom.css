@@ -31,4 +31,17 @@ td{
 }
 ul{
   list-style-type:none;
+
+.stats{
+  display: inline-block;
+  width: 900px;
+  margin-bottom: 100px;
+}
+.competition{
+  float:left;
+  margin-left: 360px;
+}
+
+.opponent{
+  float:right;
 }
