@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20140929160031) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "resource_uri"
+    t.string   "photo"
   end
 
   add_index "characters", ["name"], name: "index_characters_on_name", unique: true, using: :btree
