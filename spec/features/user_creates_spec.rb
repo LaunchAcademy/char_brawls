@@ -21,6 +21,7 @@ and be asked to sign in again once logged in
 
     expect(page).to have_content "Welcome! You have signed up successfully."
 
+
   end
 
   scenario "User doesn't provide required information" do
