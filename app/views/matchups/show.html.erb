@@ -1,8 +1,10 @@
-<a href="/characters/<%= @matchup.character_id %>"><p><%= @matchup.character.name %></a> vs. <a href="/characters/<%= @matchup.opponent_id %>"><%= @matchup.opponent.name %></p></a>
+</br>
+</br>
+<h1><a href="/characters/<%= @matchup.character_id %>"><%= @matchup.character.name %></a> vs. <a href="/characters/<%= @matchup.opponent_id %>"><%= @matchup.opponent.name %></a></h1>
 
 <ul>
 <% @matchup.opinions.each do |opinion| %>
-  <li><%= opinion.body %></li>
+  <li class = "review"><%= opinion.body %></li>
 <% end %>
 </ul>
 
