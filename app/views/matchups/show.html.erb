@@ -80,10 +80,10 @@
 
 <ul>
 <% @matchup.opinions.each do |opinion| %>
-  <% if opinion.user.profile_photo != nil%>
-    <img src = "<%= opinion.user.profile_photo %>">
+  <li class = "review"><% if opinion.user.profile_photo != nil%>
+    <img id = "profile-photo" src = "<%= opinion.user.profile_photo %>" height = "50" width = "50">
   <%end%>
-  <li class = "review"> <%= opinion.user.first_name%> says:<%= opinion.body %></li>
+  <strong><%= opinion.user.first_name%> says:</strong><%= opinion.body %></li>
 <% end %>
 </ul>
 
