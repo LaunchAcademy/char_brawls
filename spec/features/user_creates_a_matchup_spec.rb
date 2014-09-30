@@ -50,7 +50,6 @@ feature "Authenticated user creates a match-up", %Q{
     scenario "User does not select characters" do
       FactoryGirl.create_list(:character, 2)
       visit new_matchup_path
-
       click_on "Submit"
 
       expect(page).to have_content "Your matchup could not be saved!"
@@ -59,9 +58,9 @@ feature "Authenticated user creates a match-up", %Q{
     end
   end
 
-  scenario "unauthenticated user cannot create a matchup" do
-    visit new_matchup_path
+    scenario "unauthenticated user cannot create a matchup" do
+      visit new_matchup_path
 
       expect(page).to have_content "You need to sign in or sign up before continuing"
-  end
+    end
 end

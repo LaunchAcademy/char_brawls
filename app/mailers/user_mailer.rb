@@ -6,4 +6,3 @@ class UserMailer < ActionMailer::Base
     mail(to: @user.email, subject: "Welcome to Charbrawls")
   end
 end
-
