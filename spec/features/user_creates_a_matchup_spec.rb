@@ -60,7 +60,7 @@ feature "Authenticated user creates a match-up", %Q{
   end
 
   scenario "unauthenticated user cannot create a matchup" do
-      visit new_matchup_path
+    visit new_matchup_path
 
       expect(page).to have_content "You need to sign in or sign up before continuing"
   end

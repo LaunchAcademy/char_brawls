@@ -21,16 +21,12 @@ feature "Authenticated user creates a opinion", %{
       # click_on "Browse Matchups"
       # click_on matchup.description  # description would be an instance method
       # on matchup, that returned some description like "Pikachu vs. Link"
-
       fill_in "Battle Notes", with: "I think that link is gonna kick that ass!"
       choose 'opinion_winner_id_' + matchup.character.id.to_s
-      save_and_open_page
       click_on "Create Opinion"
-
-
       expect(page).to have_content "The opinion has been created successfully."
       expect(ActionMailer::Base.deliveries.size).to eql(1)
-      last_email = ActionMailer::Base.deliveries.last
+      ActionMailer::Base.deliveries.last
     end
 
     scenario "User can't submit an empty opinion" do
@@ -62,7 +58,6 @@ feature "Authenticated user creates a opinion", %{
   scenario "Unauthenticated user cannot create a opinion" do
     matchup = FactoryGirl.create(:matchup)
     visit matchup_path(matchup)
-
     expect(page).not_to have_content "Battle Notes"
   end
 end
