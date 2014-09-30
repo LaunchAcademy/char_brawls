@@ -86,29 +86,31 @@
   <strong><%= opinion.user.first_name%> says:</strong><%= opinion.body %></li>
 <% end %>
 </ul>
+<% if current_user && !current_user.has_opinion?(@matchup)%>
+  <%= form_for [@matchup, @opinion] do |f| %>
+    <%= f.label :body, "Battle Notes" %>
+    <%= f.text_field :body %>
 
-<%= form_for [@matchup, @opinion] do |f| %>
-  <%= f.label :body, "Battle Notes" %>
-  <%= f.text_field :body %>
+    <%= f.label :vote, "Choose The Winner!" %>
 
-  <%= f.label :vote, "Choose The Winner!" %>
+    <%= radio_button(:opinion, :winner_id, @matchup.character.id) %><%= @matchup.character.name %>
+    <%= radio_button(:opinion, :winner_id, @matchup.opponent.id) %><%= @matchup.opponent.name %>
 
-  <%= radio_button(:opinion, :winner_id, @matchup.character.id) %><%= @matchup.character.name %>
-  <%= radio_button(:opinion, :winner_id, @matchup.opponent.id) %><%= @matchup.opponent.name %>
+    <br>
 
-  <br>
+    <%= f.submit %>
 
-  <%= f.submit %>
-
-  <% if @opinion.errors.full_messages.any? %>
-    <% @opinion.errors.full_messages.each do |err| %>
-      <%= err %>
-      <br>
+    <% if @opinion.errors.full_messages.any? %>
+      <% @opinion.errors.full_messages.each do |err| %>
+        <%= err %>
+        <br>
+      <% end %>
     <% end %>
+    <br>
   <% end %>
+<%end%>
 
-  <br>
-<% end %>
+<%= @matchup.tabulate %>
 
 <br>
 <br>

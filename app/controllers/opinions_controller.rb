@@ -19,6 +19,7 @@ class OpinionsController < ApplicationController
   def create
     @opinion = Opinion.new(opinion_params)
     @matchup = Matchup.find(params[:matchup_id])
+    @opinion.user = current_user
     @char_trait = JSON.parse(@matchup.character.body)
     @opp_trait = JSON.parse(@matchup.opponent.body)
     @opinion.matchup = @matchup
