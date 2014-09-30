@@ -16,7 +16,6 @@ pokemon.each do |creature|
   character_data = Net::HTTP.get("pokeapi.co", "/#{creature["resource_uri"]}")
   data = JSON.parse(character_data)
 
-
   creature_attrs = {
     name: creature["name"],
     body: {
