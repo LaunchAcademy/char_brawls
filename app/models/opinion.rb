@@ -9,6 +9,7 @@ class Opinion < ActiveRecord::Base
   # validates :user, uniqueness: { scope: matchup } (also need uniqueness constraint on DB)
   validates :winner, presence: { message: "You must vote!" }
   validate :winner_in_matchup
+  validates :user, uniqueness: {scope: :matchup}
 
   def winner_in_matchup
     if winner != matchup.character && winner != matchup.opponent
