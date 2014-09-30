@@ -17,7 +17,7 @@ class OpinionsController < ApplicationController
   def create
     @opinion = Opinion.new(opinion_params)
     @matchup = Matchup.find(params[:matchup_id])
-    @opinion.user_id = current_user.id
+    @opinion.user = current_user
     @opinion.matchup = @matchup
 
     if @opinion.save

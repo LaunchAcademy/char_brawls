@@ -7,8 +7,8 @@ feature "Authenticated user creates a opinion", %{
 
   context "authenticated user" do
     before (:each) do
-      user = FactoryGirl.create(:user)
-      sign_in_as(user)
+      @user = FactoryGirl.create(:user)
+      sign_in_as(@user)
     end
 
     scenario "User writes and submits a opinion" do
@@ -46,7 +46,16 @@ feature "Authenticated user creates a opinion", %{
       click_on "Create Opinion"
       expect(page).to have_content "That opinion already exists!"
     end
+
+
+    scenario "User cannot create multiple opinions per matchup" do
+      matchup = FactoryGirl.create(:matchup)
+      FactoryGirl.create(:opinion, user: @user, matchup: matchup )
+      visit matchup_path(matchup)
+      expect(page).to_not have_button "Create Opinion"
+    end
   end
+
 
   scenario "Unauthenticated user cannot create a opinion" do
     matchup = FactoryGirl.create(:matchup)

@@ -12,9 +12,7 @@ class User < ActiveRecord::Base
     role == "admin"
   end
 
-  def has_opinion?(matchup_id)
-    if opinions.find_by matchup_id: matchup_id
-      return true
-    end
+  def has_opinion?(matchup)
+    opinions.find_by(matchup_id: matchup.id)
   end
 end
