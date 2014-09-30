@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :opinions
   mount_uploader :profile_photo, ProfilePhotoUploader
 
   # Include default devise modules. Others available are:

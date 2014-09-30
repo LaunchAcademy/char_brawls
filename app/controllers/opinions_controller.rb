@@ -18,6 +18,7 @@ class OpinionsController < ApplicationController
     @opinion = Opinion.new(opinion_params)
     @matchup = Matchup.find(params[:matchup_id])
     @opinion.matchup = @matchup
+    @opinion.user_id = current_user.id
 
     if @opinion.save
       redirect_to matchup_path(@matchup), notice: "The opinion has been created successfully."

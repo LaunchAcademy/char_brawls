@@ -4,7 +4,10 @@
 
 <ul>
 <% @matchup.opinions.each do |opinion| %>
-  <li class = "review"><%= opinion.body %></li>
+  <% if opinion.user.profile_photo != nil%>
+    <img src = "<%= opinion.user.profile_photo %>">
+  <%end%>
+  <li class = "review"> <%= opinion.user.first_name%> says:<%= opinion.body %></li>
 <% end %>
 </ul>
 
