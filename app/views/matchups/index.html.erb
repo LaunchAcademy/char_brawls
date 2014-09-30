@@ -1,13 +1,11 @@
 <h1><br>Current Matchups<br></h1>
 
 <% @matchups.each do |matchup| %>
-<%= form_tag(characters_path, :method => "get", id: "search-form") do %>
-  <%= link_to "#{matchup.character.name} vs. #{matchup.opponent.name}", matchup_path(matchup) %>
+  <p><img src="http://<%= matchup.character.photo %>" width = "100px" height = "100px"><%= link_to "#{matchup.character.name} vs. #{matchup.opponent.name}", matchup_path(matchup) %><img src= "http://<%=matchup.opponent.photo%>"width = "100px" height = "100px"></p>
 <% end %>
   <% if current_user && current_user.admin? %>
     <%= link_to "Delete!", matchup_path(matchup), method: :delete %>
   <% end %>
-<% end %>
 
 
 <%= form_tag(matchups_path, :method => "get", id: "search-form") do %>
