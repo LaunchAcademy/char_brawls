@@ -12,6 +12,7 @@ class CharactersController < ApplicationController
 
   def show
     @character = Character.find(params[:id])
+    @traits = JSON.parse(@character.body)
   end
 
   def destroy

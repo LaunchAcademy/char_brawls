@@ -1,0 +1,38 @@
+.odd{
+  background-color: #FF0000;
+}
+.title {
+  text-align: center;
+  font-family: Arial;
+}
+#pokemon{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#table-label{
+  font-weight:bold;
+}
+table{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+}
+td{
+  font-family: Arial;
+  font-size: 100px;
+}
+.stats{
+  display: inline-block;
+  width: 900px;
+  margin-bottom: 100px;
+}
+.competition{
+  float:left;
+  margin-left: 360px;
+}
+
+.opponent{
+  float:right;
+}

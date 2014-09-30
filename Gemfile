@@ -32,6 +32,7 @@ gem 'spring',        group: :development
 
 gem 'foundation-rails'
 gem 'devise'
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'rspec-rails'
@@ -55,3 +56,6 @@ end
 
 gem 'factory_girl_rails'
 gem 'fog'
+
+
+ruby "2.0.0"

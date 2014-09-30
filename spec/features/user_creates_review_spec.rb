@@ -7,15 +7,14 @@ feature "Authenticated user creates a opinion", %{
 
   context "authenticated user" do
     before (:each) do
-      user = FactoryGirl.create(:user)
-      sign_in_as(user)
+      @user = FactoryGirl.create(:user)
+      sign_in_as(@user)
     end
 
     scenario "User writes and submits a opinion" do
       matchup = FactoryGirl.create(:matchup)
       ActionMailer::Base.deliveries = []
 
-      prev_count =
       visit matchup_path(matchup)
       # Later, test how the user would navigate to this page, something like:
       # visit root_path
@@ -45,12 +44,18 @@ feature "Authenticated user creates a opinion", %{
     scenario "User can't submit exactly the same opinion text" do
       matchup = FactoryGirl.create(:matchup)
       FactoryGirl.create(:opinion)
-
       visit matchup_path(matchup)
       fill_in "Battle Notes", with: "I think that link is gonna kick that ass!"
       choose 'opinion_winner_id_' + matchup.character.id.to_s
       click_on "Create Opinion"
       expect(page).to have_content "That opinion already exists!"
+    end
+
+    scenario "User cannot create multiple opinions per matchup" do
+      matchup = FactoryGirl.create(:matchup)
+      FactoryGirl.create(:opinion, user: @user, matchup: matchup)
+      visit matchup_path(matchup)
+      expect(page).to_not have_button "Create Opinion"
     end
   end
 

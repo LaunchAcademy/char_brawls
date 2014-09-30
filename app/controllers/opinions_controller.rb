@@ -12,14 +12,17 @@ class OpinionsController < ApplicationController
 
   def new
     @opinion = Opinion.new
+    @char_trait = JSON.parse(@matchup.character.body)
+    @opp_trait = JSON.parse(@matchup.opponent.body)
   end
 
   def create
     @opinion = Opinion.new(opinion_params)
     @matchup = Matchup.find(params[:matchup_id])
-    @opinion.user_id = current_user.id
+    @opinion.user = current_user
+    @char_trait = JSON.parse(@matchup.character.body)
+    @opp_trait = JSON.parse(@matchup.opponent.body)
     @opinion.matchup = @matchup
-
     if @opinion.save
       redirect_to matchup_path(@matchup), notice: "The opinion has been created successfully."
       UserMailer.welcome_email(current_user).deliver
