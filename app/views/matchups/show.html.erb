@@ -89,6 +89,7 @@
 <% end %>
 
 
+
 <% if current_user && !current_user.has_opinion?(@matchup)%>
   <%= form_for [@matchup, @opinion] do |f| %>
     <%= f.label :body, "Battle Notes" %>
