@@ -56,9 +56,9 @@ feature "Authenticated user creates a opinion", %{
     end
   end
 
-  scenario "Unauthenticated user cannot create a opinion" do
-    matchup = FactoryGirl.create(:matchup)
-    visit matchup_path(matchup)
-    expect(page).not_to have_content "Battle Notes"
+    scenario "Unauthenticated user cannot create a opinion" do
+      matchup = FactoryGirl.create(:matchup)
+      visit matchup_path(matchup)
+      expect(page).not_to have_content "Battle Notes"
+    end
   end
-end
