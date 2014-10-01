@@ -82,9 +82,14 @@
 <%= link_to character_path(@matchup.character) %> vs. <%= link_to character_path(@matchup.opponent) %>
 
 <ul>
-  <% @matchup.opinions.each do |opinion| %>
-    <li><%= opinion.body %></li>
-  <% end %>
+
+<% @matchup.opinions.each do |opinion| %>
+  <li class = "review"><% if opinion.user.profile_photo != nil%>
+    <img id = "profile-photo" src = "<%= opinion.user.profile_photo %>" height = "50" width = "50">
+  <%end%>
+  <strong><%= opinion.user.first_name%> says:</strong><%= opinion.body %></li>
+<% end %>
+
 </ul>
 
 <% if current_user && !current_user.has_opinion?(@matchup)%>

@@ -23,6 +23,15 @@ td{
   font-family: Arial;
   font-size: 100px;
 }
+.review{
+  background-color: #e5e5e5;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+}
+ul{
+  list-style-type:none;
+}
 .stats{
   display: inline-block;
   width: 900px;
