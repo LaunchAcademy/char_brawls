@@ -16,6 +16,7 @@ feature "Authenticated user creates a opinion", %{
       ActionMailer::Base.deliveries = []
 
       visit matchup_path(matchup)
+      ActionMailer::Base.deliveries = []
       # Later, test how the user would navigate to this page, something like:
       # visit root_path
       # click_on "Browse Matchups"
@@ -24,6 +25,8 @@ feature "Authenticated user creates a opinion", %{
       fill_in "Battle Notes", with: "I think that link is gonna kick that ass!"
       choose 'opinion_winner_id_' + matchup.character.id.to_s
       click_on "Create Opinion"
+      expect(ActionMailer::Base.deliveries.size).to eql(1)
+      ActionMailer::Base.deliveries.last
       expect(page).to have_content "The opinion has been created successfully."
       expect(ActionMailer::Base.deliveries.size).to eql(1)
       last_email = ActionMailer::Base.deliveries.last
@@ -59,6 +62,11 @@ feature "Authenticated user creates a opinion", %{
     scenario "Unauthenticated user cannot create a opinion" do
       matchup = FactoryGirl.create(:matchup)
       visit matchup_path(matchup)
+<<<<<<< HEAD
       expect(page).not_to have_content "Battle Notes"
     end
+=======
+
+    expect(page).not_to have_content "Battle Notes"
+>>>>>>> Fog_Jg_user_unique_vote
   end
