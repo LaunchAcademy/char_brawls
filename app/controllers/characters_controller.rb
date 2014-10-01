@@ -4,7 +4,7 @@ class CharactersController < ApplicationController
 
   def index
     if params[:search]
-      @characters = Character.search(params[:search]).order("created_at DESC")
+      @characters = Character.search(params[:search].downcase).order("created_at DESC")
     else
       @characters = Character.page(params[:page]).per(10)
     end
