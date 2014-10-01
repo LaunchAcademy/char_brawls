@@ -1,10 +1,91 @@
-<a href="/characters/<%= @matchup.character_id %>"><p><%= @matchup.character.name %></a> vs. <a href="/characters/<%= @matchup.opponent_id %>"><%= @matchup.opponent.name %></p></a>
+<br>
+<br>
+<br>
+<h1 style = "text-align: center">
+  <%= link_to "#{@matchup.character.name}", character_path(@matchup.character) %> vs. <%= link_to "#{@matchup.opponent.name}", character_path(@matchup.opponent)%>
+</h1>
+<div class = "stats">
+  <div class = "competition">
+    <h1 class = "title"><%= @matchup.character.name%></h1>
+    <img id = "pokemon" src = "http://<%= @matchup.character.photo%>" alt = "Pokemon" height = "270" width = "270"/>
+
+    <table style = "width:220px">
+      <tr>
+        <td class = "odd" width = "70" id = "table-label">Type</td>
+        <td class = "odd" width="150"><%= @char_trait["type"] %></td>
+      </tr>
+      <tr >
+        <td id = "table-label" width = "70">Abilities</td>
+        <td width="150"><%= @char_trait["abilities"] %> </td>
+      </tr>
+      <tr>
+        <td class = "odd" width = "70" id = "table-label">Attack</td>
+        <td  class = "odd" width="150"><%= @char_trait["attack"] %></td>
+      </tr>
+      <tr>
+        <td  id = "table-label" width = "70">Defense</td>
+        <td  width="150"><%= @char_trait["defense"] %></td>
+      </tr>
+      <tr>
+        <td class= "odd" width = "70">Special Attack</td>
+        <td class = "odd" width="150"><%= @char_trait["special_attack"] %></td>
+      </tr>
+      <tr>
+        <td  id = "table-label" width = "70">Special Defense</td>
+        <td  width="150"><%= @char_trait["special_defense"] %></td>
+      </tr>
+      <tr>
+        <td class = "odd" width = "70">Speed</td>
+        <td class = "odd" width="150"><%= @char_trait["speed"] %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class = "opponent">
+    <h1 class = "title"><%= @matchup.opponent.name%></h1>
+    <img id = "pokemon" src = "http://<%= @matchup.opponent.photo%>" alt = "Pokemon" height = "270" width = "270"/>
+
+    <table style = "width:220px">
+      <tr>
+        <td class = "odd"width = "70" id = "table-label">Type</td>
+        <td class = "odd" width="150"><%= @opp_trait["type"] %></td>
+      </tr>
+      <tr >
+        <td id = "table-label" width = "70">Abilities</td>
+        <td width="150"><%= @opp_trait["abilities"] %> </td>
+      </tr>
+      <tr>
+        <td class = "odd" width = "70" id = "table-label">Attack</td>
+        <td  class = "odd" width="150"><%= @opp_trait["attack"] %></td>
+      </tr>
+      <tr>
+        <td  id = "table-label" width = "70">Defense</td>
+        <td  width="150"><%= @opp_trait["defense"] %></td>
+      </tr>
+      <tr>
+        <td class= "odd" width = "70">Special Attack</td>
+        <td class = "odd" width="150"><%= @opp_trait["special_attack"] %></td>
+      </tr>
+      <tr>
+        <td  id = "table-label" width = "70">Special Defense</td>
+        <td  width="150"><%= @opp_trait["special_defense"] %></td>
+      </tr>
+      <tr>
+        <td class = "odd" width = "70">Speed</td>
+        <td class = "odd" width="150"><%= @opp_trait["speed"] %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<%= link_to character_path(@matchup.character) %> vs. <%= link_to character_path(@matchup.opponent) %>
 
 <ul>
-<% @matchup.opinions.each do |opinion| %>
-  <li><%= opinion.body %></li>
-<% end %>
+  <% @matchup.opinions.each do |opinion| %>
+    <li><%= opinion.body %></li>
+  <% end %>
 </ul>
+
 <% if current_user && !current_user.has_opinion?(@matchup)%>
   <%= form_for [@matchup, @opinion] do |f| %>
     <%= f.label :body, "Battle Notes" %>
