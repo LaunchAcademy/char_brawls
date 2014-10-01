@@ -16,16 +16,11 @@ body {
     background-repeat:no-repeat;
     background-position:center;
   }
-#image-inner {
-    display: block;
-    height: 0;
-    padding-top: 63.3%;
-    background-image: url("http://i637.photobucket.com/albums/uu95/sasook/midair1.jpg");
-}
+
 nav {
   height: 40px;
   width: 100%;
-  background: black;
+  background-color: black;
   font-size: 11pt;
   font-family: 'PT Sans', Arial, sans-serif;
   font-weight: bold;
