@@ -1,4 +1,4 @@
-<%= link_to character_path(@matchup.character) %> vs. <%= link_to character_path(@matchup.opponent) %>
+<a href="/characters/<%= @matchup.character_id %>"><p><%= @matchup.character.name %></a> vs. <a href="/characters/<%= @matchup.opponent_id %>"><%= @matchup.opponent.name %></p></a>
 
 <ul>
 <% @matchup.opinions.each do |opinion| %>
@@ -28,6 +28,7 @@
     <br>
   <% end %>
 <%end%>
+
 
 <%= @matchup.tabulate %>
 

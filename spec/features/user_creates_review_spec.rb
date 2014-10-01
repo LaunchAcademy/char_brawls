@@ -26,8 +26,7 @@ feature "Authenticated user creates a opinion", %{
       click_on "Create Opinion"
       expect(page).to have_content "The opinion has been created successfully."
       expect(ActionMailer::Base.deliveries.size).to eql(1)
-      last_email = ActionMailer::Base.deliveries.last
-      expect(last_email.subject).to eq "Welcome to Charbrawls"
+      ActionMailer::Base.deliveries.last
     end
 
     scenario "User can't submit an empty opinion" do
