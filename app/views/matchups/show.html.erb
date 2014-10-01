@@ -1,85 +1,86 @@
-
 </br>
 </br>
 </br>
-<h1 style = "text-align: center">
-<%= link_to "#{@matchup.character.name}", character_path(@matchup.character) %> vs. <%= link_to "#{@matchup.opponent.name}",character_path(@matchup.character) %>
-</h1>
-<div class = "stats">
-  <div class = "competition">
-    <h1 class = "title"><%= @matchup.character.name%></h1>
-    <img id = "pokemon" src = "http://<%= @matchup.character.photo%>" alt = "Pokemon" height = "270" width = "270"/>
+<div class = "container">
+  <div class = "stats">
+    <h1 style = "text-align: center">
+  <%= link_to "#{@matchup.character.name}", character_path(@matchup.character) %> vs. <%= link_to "#{@matchup.opponent.name}",character_path(@matchup.character) %>
+    </h1>
 
-    <table style = "width:220px">
-      <tr>
-        <td class = "odd" width = "70" id = "table-label">Type</td>
-        <td class = "odd" width="150"><%= @char_trait["type"] %></td>
-      </tr>
-      <tr >
-        <td id = "table-label" width = "70">Abilities</td>
-        <td width="150"><%= @char_trait["abilities"] %> </td>
-      </tr>
-      <tr>
-        <td class = "odd" width = "70" id = "table-label">Attack</td>
-        <td  class = "odd" width="150"><%= @char_trait["attack"] %></td>
-      </tr>
-      <tr>
-        <td  id = "table-label" width = "70">Defense</td>
-        <td  width="150"><%= @char_trait["defense"] %></td>
-      </tr>
-      <tr>
-        <td class= "odd" width = "70">Special Attack</td>
-        <td class = "odd" width="150"><%= @char_trait["special_attack"] %></td>
-      </tr>
-      <tr>
-        <td  id = "table-label" width = "70">Special Defense</td>
-        <td  width="150"><%= @char_trait["special_defense"] %></td>
-      </tr>
-      <tr>
-        <td class = "odd" width = "70">Speed</td>
-        <td class = "odd" width="150"><%= @char_trait["speed"] %></td>
-      </tr>
-    </table>
-  </div>
+    <div class = "competition">
+      <h1 class = "title"><%= @matchup.character.name%></h1>
+      <img id = "pokemon" src = "http://<%= @matchup.character.photo%>" alt = "Pokemon" height = "270" width = "270"/>
 
-  <div class = "opponent">
-    <h1 class = "title"><%= @matchup.opponent.name%></h1>
-    <img id = "pokemon" src = "http://<%= @matchup.opponent.photo%>" alt = "Pokemon" height = "270" width = "270"/>
+      <table style = "width:220px">
+        <tr>
+          <td class = "odd" width = "70" id = "table-label">Type</td>
+          <td class = "odd" width="150"><%= @char_trait["type"] %></td>
+        </tr>
+        <tr >
+          <td id = "table-label" width = "70">Abilities</td>
+          <td width="150"><%= @char_trait["abilities"] %> </td>
+        </tr>
+        <tr>
+          <td class = "odd" width = "70" id = "table-label">Attack</td>
+          <td  class = "odd" width="150"><%= @char_trait["attack"] %></td>
+        </tr>
+        <tr>
+          <td  id = "table-label" width = "70">Defense</td>
+          <td  width="150"><%= @char_trait["defense"] %></td>
+        </tr>
+        <tr>
+          <td class= "odd" id = "table-label"width = "70">Special Attack</td>
+          <td class = "odd" width="150"><%= @char_trait["special_attack"] %></td>
+        </tr>
+        <tr>
+          <td  id = "table-label" width = "70">Special Defense</td>
+          <td  width="150"><%= @char_trait["special_defense"] %></td>
+        </tr>
+        <tr>
+          <td class = "odd" id = "table-label" width = "70">Speed</td>
+          <td class = "odd" width="150"><%= @char_trait["speed"] %></td>
+        </tr>
+      </table>
+    </div>
 
-    <table style = "width:220px">
-      <tr>
-        <td class = "odd"width = "70" id = "table-label">Type</td>
-        <td class = "odd" width="150"><%= @opp_trait["type"] %></td>
-      </tr>
-      <tr >
-        <td id = "table-label" width = "70">Abilities</td>
-        <td width="150"><%= @opp_trait["abilities"] %> </td>
-      </tr>
-      <tr>
-        <td class = "odd" width = "70" id = "table-label">Attack</td>
-        <td  class = "odd" width="150"><%= @opp_trait["attack"] %></td>
-      </tr>
-      <tr>
-        <td  id = "table-label" width = "70">Defense</td>
-        <td  width="150"><%= @opp_trait["defense"] %></td>
-      </tr>
-      <tr>
-        <td class= "odd" width = "70">Special Attack</td>
-        <td class = "odd" width="150"><%= @opp_trait["special_attack"] %></td>
-      </tr>
-      <tr>
-        <td  id = "table-label" width = "70">Special Defense</td>
-        <td  width="150"><%= @opp_trait["special_defense"] %></td>
-      </tr>
-      <tr>
-        <td class = "odd" width = "70">Speed</td>
-        <td class = "odd" width="150"><%= @opp_trait["speed"] %></td>
-      </tr>
-    </table>
+    <div class = "opponent">
+      <h1 class = "title"><%= @matchup.opponent.name%></h1>
+      <img id = "pokemon" src = "http://<%= @matchup.opponent.photo%>" alt = "Pokemon" height = "270" width = "270"/>
+      <table style = "width:220px">
+        <tr>
+          <td class = "odd"width = "70" id = "table-label">Type</td>
+          <td class = "odd" width="150"><%= @opp_trait["type"] %></td>
+        </tr>
+        <tr >
+          <td id = "table-label" width = "70">Abilities</td>
+          <td width="150"><%= @opp_trait["abilities"] %> </td>
+        </tr>
+        <tr>
+          <td class = "odd" id = "table-label" width = "70" id = "table-label">Attack</td>
+          <td  class = "odd" width="150"><%= @opp_trait["attack"] %></td>
+        </tr>
+        <tr>
+          <td  id = "table-label" width = "70">Defense</td>
+          <td  width="150"><%= @opp_trait["defense"] %></td>
+        </tr>
+        <tr>
+          <td class= "odd" id = "table-label" width = "70">Special Attack</td>
+          <td class = "odd" width="150"><%= @opp_trait["special_attack"] %></td>
+        </tr>
+        <tr>
+          <td  id = "table-label" width = "70">Special Defense</td>
+          <td  width="150"><%= @opp_trait["special_defense"] %></td>
+        </tr>
+        <tr>
+          <td class = "odd" id = "table-label" width = "70">Speed</td>
+          <td class = "odd"><%= @opp_trait["speed"] %></td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>
 
-<%= link_to character_path(@matchup.character) %> vs. <%= link_to character_path(@matchup.opponent) %>
+<h1 style = "text-align: center"><%=@matchup.tabulate%></h1>
 
 <ul>
 
@@ -116,7 +117,6 @@
   <% end %>
 <%end%>
 
-<%= @matchup.tabulate %>
 
 <br>
 <br>

@@ -32,16 +32,25 @@ td{
 ul{
   list-style-type:none;
 }
+.container{
+  text-align:center;
+  }
+.container:before{
+  content: '';
+  display:inline-block;
+  height:100%;
+  vertical-align: middle;
+  margin-right: -.25em;
+}
 .stats{
   display: inline-block;
+  vertical-align:middle;
   width: 900px;
-  margin-bottom: 100px;
 }
-.competition{
-  float:left;
-  margin-left: 360px;
-}
-
 .opponent{
   float:right;
 }
+.competition{
+  float:left;
+}
+
