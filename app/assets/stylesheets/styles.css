@@ -12,3 +12,50 @@ div.image:before {
    content:url(http://img3.wikia.nocookie.net/__cb20130901024704/clubpenguin/images/4/4c/Pokeball.png);
 }
 
+
+h1 {
+
+font-family: 'Oswald';
+font-style: bold;
+display: inline-block;
+
+
+}
+
+.nav-bar a {
+
+
+font-family: 'Maven Pro';
+
+font-size: 16px;
+
+}
+
+.pagination {
+
+font-family: 'Oswald';
+font-size: 19px;
+
+
+}
+
+#search {
+
+border-radius: 18px;
+
+}
+
+
+ul {
+
+font-family: 'Maven Pro';
+
+}
+form {
+
+font-family: 'Maven Pro';
+
+}
+
+
+

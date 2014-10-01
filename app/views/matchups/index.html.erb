@@ -10,9 +10,6 @@
 <% end %>
 
 
-<%= form_tag(matchups_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search matchups" %>
-  <%= submit_tag "Search", :name => nil %>
-<% end %>
+
 
 <%= paginate @matchups %>
