@@ -25,6 +25,7 @@ class OpinionsController < ApplicationController
     @opinion.matchup = @matchup
     if @opinion.save
       redirect_to matchup_path(@matchup), notice: "The opinion has been created successfully."
+      UserMailer.welcome_email(current_user).deliver
     else
       render "matchups/show"
     end
