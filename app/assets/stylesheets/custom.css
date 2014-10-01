@@ -23,15 +23,37 @@ td{
   font-family: Arial;
   font-size: 100px;
 }
+.review{
+  background-color: #e5e5e5;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+}
+ul{
+  list-style-type:none;
+}
+.container{
+  text-align:center;
+  }
+.container:before{
+  content: '';
+  display:inline-block;
+  height:100%;
+  vertical-align: middle;
+  margin-right: -.25em;
+}
 .stats{
   display: inline-block;
+  vertical-align:middle;
   width: 900px;
-  margin-bottom: 100px;
+}
+.opponent{
+  float:right;
 }
 .competition{
   float:left;
-  margin-left: 360px;
 }
+
 
 .opponent{
   float:right;
@@ -52,5 +74,3 @@ td{
   -o-background-size: contain;
   background-size: contain;
 }
-
-

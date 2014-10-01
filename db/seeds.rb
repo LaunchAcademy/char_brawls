@@ -1,11 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
+#### API METHOD ######
+# The most efficent way to seed the database is to run the creation of the Character(Pokemon)
+# then run the function that provides you the photo for that pokemon.
+# It will give you the photo for about 600 of the 778 pokemon.
 require 'net/http'
 
 results = Net::HTTP.get("pokeapi.co", "/api/v1/pokedex/1/")
@@ -13,6 +9,7 @@ results = Net::HTTP.get("pokeapi.co", "/api/v1/pokedex/1/")
 pokemon = JSON.parse(results)["pokemon"]
 
 pokemon.each do |creature|
+  puts "Sending request to: #{creature["resource_uri"]}"
   character_data = Net::HTTP.get("pokeapi.co", "/#{creature["resource_uri"]}")
   data = JSON.parse(character_data)
 
@@ -29,7 +26,11 @@ pokemon.each do |creature|
     }.to_json,
     resource_uri: creature["resource_uri"]
   }
-  Character.find_or_create_by(creature_attrs)
+  puts "Creating character: #{creature_attrs["name]"]}"
+
+  character = Character.find_or_initialize_by(name: creature_attrs[:name])
+  character.assign_attributes(creature_attrs)
+  character.save!
 end
 
 n = 1
@@ -41,4 +42,11 @@ while n < 719
   choice.photo = "pokeapi.co#{pokemon["image"]}"
   choice.save
   n += 1
+end
+
+## CSV Method ###
+
+require 'csv'
+CSV.foreach('pokemon.csv', :headers => true) do |row|
+  Character.create!(row.to_hash)
 end
