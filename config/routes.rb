@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :opinions, only: [:new, :create, :destroy]
   end
 
-  root to: 'welcome#index'
+  root to: "welcome#index"
 
   resources :characters, only: [:index, :show, :destroy]
 end
