@@ -57,3 +57,4 @@ gem 'factory_girl_rails'
 gem 'fog'
 
 ruby "2.1.2"
+
