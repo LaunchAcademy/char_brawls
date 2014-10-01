@@ -59,5 +59,6 @@ feature "Authenticated user creates a match-up", %Q{
     end
   end
 
-  scenario "unauthenticated user cannot create a matchup"
-end
+      scenario "unauthenticated user cannot create a matchup" do
+    end
+  end
