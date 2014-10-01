@@ -56,4 +56,4 @@ end
 gem 'factory_girl_rails'
 gem 'fog'
 
-ruby "2.0.0"
+ruby "2.1.2"
