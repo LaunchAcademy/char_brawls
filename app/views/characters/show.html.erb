@@ -3,7 +3,7 @@
 </br>
 
 <h1 class = "title"><%= @character.name%></h1>
-<img id = "pokemon" src = "http://<%= @character.photo%>" alt = "Pokemon" height = "270" width = "270"/>
+<img id = "pokemon" src = "/images/pokemon/<%= @character.name %>.png" onerror="src='/images/pokemon/pokeball.png'" alt = "Pokemon" height = "270" width = "270"/>
 
 <table style = "width:220px">
   <tr>

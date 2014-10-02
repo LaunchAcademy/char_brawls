@@ -2,7 +2,7 @@
 
 <ul class="small-block-grid-4">
   <% @characters.each do |character| %>
-    <li><%= link_to character.name, character_path(character) %></li>
+    <li><%= link_to character.name, character_path(character) %>   <img onerror="src='/images/pokemon/pokeball.png'" src="/images/pokemon/<%= character.name %>.png"></li>
 
     <% if current_user && current_user.admin? %>
       <%= link_to "Delete!", character_path(character), method: :delete %>
