@@ -54,3 +54,23 @@ ul{
   float:left;
 }
 
+
+.opponent{
+  float:right;
+}
+
+.text {
+  text-align: center;
+}
+.text a:hover {
+  color: red;
+}
+
+.home {
+  background: url(/images/pokemon_homepage.jpg) no-repeat top center fixed;
+  background-color: #000;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+}
