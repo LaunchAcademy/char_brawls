@@ -56,6 +56,6 @@ end
 
 gem 'factory_girl_rails'
 gem 'fog'
-
+gem 'seed_dump'
 ruby "2.0.0"
 
