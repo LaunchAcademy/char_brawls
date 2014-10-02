@@ -23,8 +23,11 @@ class OpinionsController < ApplicationController
     @char_trait = JSON.parse(@matchup.character.body)
     @opp_trait = JSON.parse(@matchup.opponent.body)
     @opinion.matchup = @matchup
+    @opinion.user_id = current_user.id
+
     if @opinion.save
       redirect_to matchup_path(@matchup), notice: "The opinion has been created successfully."
+      UserMailer.welcome_email(current_user).deliver
     else
       render "matchups/show"
     end

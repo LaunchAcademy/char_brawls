@@ -1,8 +1,7 @@
 class Opinion < ActiveRecord::Base
-  belongs_to :matchup
-  belongs_to :user
+  belongs_to :matchup, counter_cache: true
   belongs_to :winner, class_name: "Character"
-
+  belongs_to :user
   validates :body,
     presence: { message: "The opinion can't be empty!" },
     uniqueness: { message: "That opinion already exists!" }

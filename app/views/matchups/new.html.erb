@@ -11,10 +11,10 @@
   <% end %>
 
   <%= f.label :character_id, "Character One" %>
-  <%= f.collection_select :character_id, Character.all, :id, :name, include_blank: true %>
+  <%= f.collection_select :character_id, Character.all.order(:name), :id, :name, include_blank: true %>
 
   <%= f.label :opponent_id, "Character Two" %>
-  <%= f.collection_select :opponent_id, Character.all, :id, :name, include_blank: true %>
+  <%= f.collection_select :opponent_id, Character.all.order(:name), :id, :name, include_blank: true %>
 
   <br><%= f.submit "Submit" %><br>
 
