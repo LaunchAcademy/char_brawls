@@ -13,9 +13,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
-
+gem 'email_spec'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'figaro'
 
 gem 'kaminari'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -56,5 +57,5 @@ end
 gem 'factory_girl_rails'
 gem 'fog'
 
+ruby "2.1.2"
 
-ruby "2.0.0"
