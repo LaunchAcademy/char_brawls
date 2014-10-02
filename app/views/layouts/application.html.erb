@@ -5,7 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Character Brawls" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "CharBrawls!" %></title>
+
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
+
     <%= stylesheet_link_tag    "application" %>
     <%= stylesheet_link_tag "stylesheets/styles.css"%>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -52,7 +56,6 @@
   <%= flash[:notice] %>
   <div>
     </div>
-    <%= flash[:notice] %>
     <%= yield %>
   </div>
     <%if notice%>

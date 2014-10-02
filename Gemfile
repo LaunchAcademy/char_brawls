@@ -18,10 +18,10 @@ gem 'spring',        group: :development
 gem 'foundation-rails'
 gem 'devise'
 gem 'rails_12factor', group: :production
-gem 'factory_girl_rails'
 gem 'fog'
 
 group :development, :test do
+  gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'pry-rails'
@@ -32,6 +32,4 @@ end
 group :test do
   gem 'coveralls', require: false
 end
-
-
 
