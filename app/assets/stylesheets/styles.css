@@ -17,6 +17,10 @@ body {
     background-position:center;
   }
 
+h1{
+  color: white;
+}
+
 nav {
   height: 40px;
   width: 100%;
@@ -94,9 +98,27 @@ nav a:hover, nav a:active {
     border-bottom: 1px solid #576979;
   }
 }
-#search-form
-{
-    width:200px;
-}
 
+
+
+textarea {
+  width: 400px;
+  border-radius: 20px ;
+}
+input[type="text"] {
+  width: 400px;
+  border-radius: 20px ;
+}
+input[type="email"] {
+  width: 400px;
+  border-radius: 20px ;
+}
+input[type="password"] {
+  width: 400px;
+  border-radius: 20px ;
+}
+select {
+  width: 400px;
+  border-radius: 20px ;
+}
 
