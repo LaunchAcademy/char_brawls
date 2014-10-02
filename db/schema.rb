@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140930155105) do
+ActiveRecord::Schema.define(version: 20141001152536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,8 +30,9 @@ ActiveRecord::Schema.define(version: 20140930155105) do
   create_table "matchups", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "character_id", null: false
-    t.integer  "opponent_id",  null: false
+    t.integer  "character_id",   null: false
+    t.integer  "opponent_id",    null: false
+    t.integer  "opinions_count"
   end
 
   add_index "matchups", ["character_id", "opponent_id"], name: "index_matchups_on_character_id_and_opponent_id", unique: true, using: :btree
