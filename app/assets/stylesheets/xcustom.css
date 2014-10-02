@@ -54,17 +54,25 @@ ul{
   float:left;
 }
 
-
 .opponent{
   float:right;
 }
 
-.text {
+.writing {
   text-align: center;
 }
-.text a:hover {
-  color: red;
+
+a.writing:link{
+  color: white;
 }
+
+a.writing:hover {
+  color:red;
+}
+
+
+
+
 
 .home {
   background: url(/images/pokemon_homepage.jpg) no-repeat top center fixed;
