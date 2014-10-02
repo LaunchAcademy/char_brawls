@@ -10,8 +10,9 @@
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
 
-    <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag "application" %>
     <%= stylesheet_link_tag "stylesheets/styles.css"%>
+    <%= stylesheet_link_tag "stylesheets/xcustom.css"%>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
@@ -24,7 +25,7 @@
           <% else %>
              <li><img src="http://img3.wikia.nocookie.net/__cb20130901024704/clubpenguin/images/4/4c/Pokeball.png"height="40" width="40" align = "left"></li>
       <% end %>
-        <li><%= link_to "Home", characters_path%></li>
+        <li><%= link_to "Home", root_path%></li>
         <li><%= link_to "Characters", characters_path%></li>
         <li><%= link_to "Matchups", matchups_path%></li>
           <% if current_user %>
@@ -37,9 +38,8 @@
           <li><%= link_to "Sign up", new_user_registration_path%></li>
         <% end %>
         </nav>
-      </nav>
         <nav class="clearfix show-for-small-only">
-          <li><%= link_to "Home", characters_path%></li>
+          <li><%= link_to "Home", root_path%></li>
           <li><%= link_to "Characters", characters_path%></li>
           <li><%= link_to "Matchups", matchups_path%></li>
         <% if current_user %>

@@ -1,14 +1,15 @@
 require 'rails_helper'
+
 feature "User creates a new account", %Q{
-As an user,
-I want to create an account
-and be asked to sign in again once logged in
-}  do
+  As an user,
+  I want to create an account
+  and be asked to sign in again once logged in
+} do
 
   scenario "User provides required information" do
     user = FactoryGirl.build(:user)
-
     visit root_path
+    click_on "Click here to Enter Charbrawls"
     click_on "Sign up"
     fill_in "First name", with: user.first_name
     fill_in "Last name", with: user.last_name
@@ -24,6 +25,7 @@ and be asked to sign in again once logged in
 
   scenario "User doesn't provide required information" do
     visit root_path
+    click_on "Click here to Enter Charbrawls"
     click_on "Sign up"
     within '.new_user' do
       click_on "Sign up"
@@ -37,6 +39,7 @@ and be asked to sign in again once logged in
     user = FactoryGirl.create(:user)
 
     visit root_path
+    click_on "Click here to Enter Charbrawls"
     click_on "Sign up"
     fill_in "First name", with: user.first_name
     fill_in "Last name", with: user.last_name
@@ -52,9 +55,9 @@ and be asked to sign in again once logged in
   end
 
   scenario "Passwords don't match" do
-
     user = FactoryGirl.build(:user)
     visit root_path
+    click_on "Click here to Enter Charbrawls"
     click_on "Sign up"
     fill_in "First name", with: user.first_name
     fill_in "Last name", with: user.last_name
@@ -67,13 +70,12 @@ and be asked to sign in again once logged in
     end
 
     expect(page).to have_content "Password confirmation doesn't match"
-
   end
 
   scenario "User is signed in" do
-
     user = FactoryGirl.create(:user)
     visit root_path
+    click_on "Click here to Enter Charbrawls"
     click_on "Sign in"
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
