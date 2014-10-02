@@ -4,7 +4,7 @@ class MatchupsController < ApplicationController
 
   def index
     if params[:search]
-      @matchups = Matchup.search(params[:search]).order()
+      @matchups = Matchup.search(params[:search]).order('opinions_count desc')
     else
       @matchups = Matchup.order('opinions_count desc').page(params[:page]).per(10)
     end
