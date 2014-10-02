@@ -6,14 +6,11 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
     <%= stylesheet_link_tag    "application" %>
-    <%= stylesheet_link_tag "stylesheets/xcustom.css"%>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body class="home">
-
-
 
     <%= yield %>
 
