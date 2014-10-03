@@ -1,4 +1,4 @@
-Character.find_or_create_by([
+ characters_attrs = [
   {name: "charmeleon", body: "{\"type\":\"fire\",\"abilities\":\"blaze\",\"attack\":64,\"defense\":58,\"special_attack\":80,\"special_defense\":65,\"speed\":80}", resource_uri: "api/v1/pokemon/5/", photo: "pokeapi.co/media/img/5.png"},
   {name: "blastoise", body: "{\"type\":\"water\",\"abilities\":\"rain-dish\",\"attack\":83,\"defense\":100,\"special_attack\":85,\"special_defense\":105,\"speed\":78}", resource_uri: "api/v1/pokemon/9/", photo: "pokeapi.co/media/img/9.png"},
   {name: "caterpie", body: "{\"type\":\"bug\",\"abilities\":\"shield-dust\",\"attack\":30,\"defense\":35,\"special_attack\":20,\"special_defense\":20,\"speed\":45}", resource_uri: "api/v1/pokemon/10/", photo: "pokeapi.co/media/img/10.png"},
@@ -779,46 +779,6 @@ Character.find_or_create_by([
   {name: "pancham", body: "{\"type\":\"fighting\",\"abilities\":\"iron-fist\",\"attack\":82,\"defense\":62,\"special_attack\":46,\"special_defense\":48,\"speed\":43}", resource_uri: "api/v1/pokemon/674/", photo: "pokeapi.co/media/img/674.png"}
 ])
 
-
-############ Done using the Pokemon API #################################
-# require 'net/http'
-
-# results = Net::HTTP.get("pokeapi.co", "/api/v1/pokedex/1/")
-
-# pokemon = JSON.parse(results)["pokemon"]
-
-# pokemon.each do |creature|
-#   puts "Sending request to: #{creature["resource_uri"]}"
-#   character_data = Net::HTTP.get("pokeapi.co", "/#{creature["resource_uri"]}")
-#   data = JSON.parse(character_data)
-
-#   creature_attrs = {
-#     name: creature["name"],
-#     body: {
-#       type: data["types"][0]["name"],
-#       abilities: data["abilities"][0]["name"],
-#       attack: data["attack"],
-#       defense: data["defense"],
-#       special_attack: data["sp_atk"],
-#       special_defense: data["sp_def"],
-#       speed: data["speed"]
-#     }.to_json,
-#     resource_uri: creature["resource_uri"]
-#   }
-#   puts "Creating character: #{creature_attrs["name]"]}"
-
-#   character = Character.find_or_initialize_by(name: creature_attrs[:name])
-#   character.assign_attributes(creature_attrs)
-#   character.save!
-# end
-
-# n = 1
-# while n < 719
-#   query = Net::HTTP.get("pokeapi.co", "/api/v1/sprite/#{n}/")
-#   pokemon = JSON.parse(query)
-#   (pokemon["pokemon"]["resource_uri"]).slice!(0)
-#   choice = Character.find_by(resource_uri:"#{pokemon["pokemon"]["resource_uri"]}")
-#   choice.photo = "pokeapi.co#{pokemon["image"]}"
-#   choice.save
-#   n += 1
-# end
+characters_attrs.each do |char_attrs|
+  Character.find_or_create_by(char_attrs)
+end
