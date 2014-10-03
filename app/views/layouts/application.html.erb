@@ -10,60 +10,48 @@
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= stylesheet_link_tag "stylesheets/styles.css"%>
+    <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
 
-    <nav class="clearfix show-for-medium-up">
+    <nav class="clearfix">
       <% if current_user %>
-        <li><img src="http://fc03.deviantart.net/images2/i/2003/52/3/9/Pokeball_Opening.jpg"height="40" width="50" align = "left"></li>
-          <% else %>
-             <li><img src="http://img3.wikia.nocookie.net/__cb20130901024704/clubpenguin/images/4/4c/Pokeball.png"height="40" width="40" align = "left"></li>
-      <% end %>
-        <li><%= link_to "Home", characters_path%></li>
-        <li><%= link_to "Characters", characters_path%></li>
-        <li><%= link_to "Matchups", matchups_path%></li>
-          <% if current_user %>
-              <li><%=link_to "Create Matchup", new_matchup_path%></li>
-          <% end %>
-      <% if current_user %>
-        <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
-        <% else %>
-          <li><%= link_to "Sign in", new_user_session_path%></li>
-          <li><%= link_to "Sign up", new_user_registration_path%></li>
-        <% end %>
-        </nav>
-      </nav>
-        <nav class="clearfix show-for-small-only">
-          <li><%= link_to "Home", characters_path%></li>
-          <li><%= link_to "Characters", characters_path%></li>
-          <li><%= link_to "Matchups", matchups_path%></li>
-        <% if current_user %>
-          <li><%=link_to "Create Matchup", new_matchup_path%></li>
-        <% end %>
-        <% if current_user %>
-          <li> <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
 
-          <% else %>
-            <li><%= link_to "Sign in", new_user_session_path%></li>
-            <li><%= link_to "Sign up", new_user_registration_path%></li>
-        <% end %>
-      </nav>
-  <%= flash[:notice] %>
-  <div>
-    </div>
-    <%= yield %>
-  </div>
-    <%if notice%>
+        <li>
+          <img src="http://fc03.deviantart.net/images2/i/2003/52/3/9/Pokeball_Opening.jpg"height="40" width="50" align = "left">
+        </li>
+      <% else %>
+        <li>
+          <img src="http://img3.wikia.nocookie.net/__cb20130901024704/clubpenguin/images/4/4c/Pokeball.png"height="40" width="40" align = "left">
+        </li>
+      <% end %>
+
+      <li><%= link_to "Home", root_path%></li>
+      <li><%= link_to "Characters", characters_path%></li>
+      <li><%= link_to "Matchups", matchups_path%></li>
+
+      <% if current_user %>
+        <li><%=link_to "Create Matchup", new_matchup_path%></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+      <% else %>
+        <li><%= link_to "Sign in", new_user_session_path%></li>
+        <li><%= link_to "Sign up", new_user_registration_path%></li>
+      <% end %>
+    </nav>
+
+    <% if notice %>
       <p class="notice"><%= notice %></p>
-    <%end%>
+    <% end %>
+
     <%if%>
-       <p class="alert"><%= alert %></p>
+      <p class="alert"><%= alert %></p>
     <%end%>
+
+    <%= yield %>
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>

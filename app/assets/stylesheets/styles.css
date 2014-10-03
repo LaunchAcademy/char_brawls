@@ -99,7 +99,8 @@ nav a:hover, nav a:active {
   }
 }
 /*MOBILE*/
-@media only screen and (max-width : 320px) {
+
+@media only screen and (max-width: 320px) {
   nav li {
     display: block;
     float: none;
