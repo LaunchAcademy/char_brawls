@@ -5,4 +5,8 @@ module AuthenticationHelper
     fill_in "Password", with: user.password
     click_on "Log in"
   end
+
+  def click_home_page
+    click_on "Click here to Enter Charbrawls"
+  end
 end
