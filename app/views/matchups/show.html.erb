@@ -11,8 +11,8 @@
 
     <div class = "competition">
       <h1 class = "title"><%= @matchup.character.name%></h1>
-      <img id = "pokemon" src = "http://<%= @matchup.character.photo%>" alt = "Pokemon" height = "270" width = "270"/>
-
+      <img id = "pokemon" src = "http://<%= @matchup.character.photo%>" alt = "Pokemon" height = "220" width = "220"/>
+      </br>
       <table style = "width:220px">
         <tr>
           <td class = "odd" width = "70" id = "table-label">Type</td>
@@ -47,7 +47,8 @@
 
     <div class = "opponent">
       <h1 class = "title"><%= @matchup.opponent.name%></h1>
-      <img id = "pokemon" src = "http://<%= @matchup.opponent.photo%>" alt = "Pokemon" height = "270" width = "270"/>
+      <img id = "pokemon" src = "http://<%= @matchup.opponent.photo%>" alt = "Pokemon" height = "220" width = "220"/>
+      </br>
       <table style = "width:220px">
         <tr>
           <td class = "odd"width = "70" id = "table-label">Type</td>
