@@ -1,4 +1,4 @@
-Character.create!([
+Character.find_or_create_by([
   {name: "charmeleon", body: "{\"type\":\"fire\",\"abilities\":\"blaze\",\"attack\":64,\"defense\":58,\"special_attack\":80,\"special_defense\":65,\"speed\":80}", resource_uri: "api/v1/pokemon/5/", photo: "pokeapi.co/media/img/5.png"},
   {name: "blastoise", body: "{\"type\":\"water\",\"abilities\":\"rain-dish\",\"attack\":83,\"defense\":100,\"special_attack\":85,\"special_defense\":105,\"speed\":78}", resource_uri: "api/v1/pokemon/9/", photo: "pokeapi.co/media/img/9.png"},
   {name: "caterpie", body: "{\"type\":\"bug\",\"abilities\":\"shield-dust\",\"attack\":30,\"defense\":35,\"special_attack\":20,\"special_defense\":20,\"speed\":45}", resource_uri: "api/v1/pokemon/10/", photo: "pokeapi.co/media/img/10.png"},
