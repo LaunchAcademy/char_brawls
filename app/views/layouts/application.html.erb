@@ -1,59 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Character Brawls" %></title>
-    <%= stylesheet_link_tag    "application" %>
-    <%= stylesheet_link_tag "stylesheets/styles.css"%>
+    <title><%= content_for?(:title) ? yield(:title) : "CharBrawls!" %></title>
+
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
+
+    <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
 
-    <div class = "fixed">
-      <nav class = "top-bar">
-        <section class = "nav-bar top-bar-section">
-          <font size="5"><a href="http://localhost:3000/characters"> <img src="http://img3.wikia.nocookie.net/__cb20130901024704/clubpenguin/images/4/4c/Pokeball.png"height="42" width="42" align = "left"></a>
+    <nav class="clearfix">
+      <% if current_user %>
+        <li>
+          <img src="http://fc03.deviantart.net/images2/i/2003/52/3/9/Pokeball_Opening.jpg"height="40" width="50" align = "left">
+        </li>
+      <% else %>
+        <li>
+          <img src="http://img3.wikia.nocookie.net/__cb20130901024704/clubpenguin/images/4/4c/Pokeball.png"height="40" width="40" align = "left">
+        </li>
+      <% end %>
 
-          <ul class="left">
-            <li><font size="5"><%= link_to "Home", characters_path%></font></li>
-            <li><font size="5"><%= link_to "Characters", characters_path%></font></li>
-            <li><font size="5"><%= link_to "Matchups", matchups_path%></font></li>
-          </ul>
-            <ul>
-            <% if current_user %>
-              <li><font size="5"><%=link_to "Create A Matchup", new_matchup_path%></font></li>
-            <% end %>
-            </ul>
+      <li><%= link_to "Home", root_path%></li>
+      <li><%= link_to "Characters", characters_path%></li>
+      <li><%= link_to "Matchups", matchups_path%></li>
 
-          <ul class="right">
-            <li>
-              <a href="#">
-                <% if current_user %>
-                  <li> <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
-                <% else %>
-                  <font size="5"><%= link_to "Sign in", new_user_session_path%>
-                  <font size="5"><%= link_to "Sign up", new_user_registration_path%>
-                <% end %>
-              </a>
-            </li>
-          </ul>
-        </section>
-      </nav>
-    </div>
-    <%= flash[:notice] %>
+      <% if current_user %>
+        <li><%=link_to "Create Matchup", new_matchup_path%></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+      <% else %>
+        <li><%= link_to "Sign in", new_user_session_path%></li>
+        <li><%= link_to "Sign up", new_user_registration_path%></li>
+      <% end %>
+    </nav>
+
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+
+    <%if%>
+      <p class="alert"><%= alert %></p>
+    <%end%>
 
     <%= yield %>
-
-    <%if notice%>
-      <p class="notice"><%= notice %></p>
-    <%end%>
-    <%if%>
-       <p class="alert"><%= alert %></p>
-    <%end%>
 
     <%= javascript_include_tag "application" %>
   </body>

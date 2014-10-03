@@ -1,2 +1,1 @@
-Notes on Seeding the Database:
-The most efficent way to seed the database is to run the creation of the Character(Pokemon) then run the function that provides you the photo for that pokemon. It will give you the photo for about 600 of the 778 pokemon.
+

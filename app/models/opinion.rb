@@ -1,5 +1,5 @@
 class Opinion < ActiveRecord::Base
-  belongs_to :matchup
+  belongs_to :matchup, counter_cache: true
   belongs_to :winner, class_name: "Character"
   belongs_to :user
   validates :body,
