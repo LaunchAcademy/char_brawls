@@ -12,15 +12,14 @@ feature "Authenticated user creates a match-up", %Q{
     end
 
     scenario "User makes a match-up" do
+      click_on "Click here to Enter Charbrawls"
       character = FactoryGirl.create(:character)
       opponent = FactoryGirl.create(:character)
+      visit new_matchup_path
 
-      visit root_path
-      click_on "Create A Matchup"
       select character.name, from: "Character One"
       select opponent.name, from: "Character Two"
       click_on "Submit"
-
       expect(page).to have_content "The matchup has been created successfully."
     end
 
@@ -60,9 +59,9 @@ feature "Authenticated user creates a match-up", %Q{
   end
 
 
-      scenario "unauthenticated user cannot create a matchup" do
-      visit new_matchup_path
+  scenario "unauthenticated user cannot create a matchup" do
+    visit new_matchup_path
 
-      expect(page).to have_content "You need to sign in or sign up before continuing"
-    end
+    expect(page).to have_content "You need to sign in or sign up before continuing"
   end
+end
