@@ -19,6 +19,8 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'rails_12factor', group: :production
 gem 'fog'
+gem 'better_errors', group: :development
+gem 'binding_of_caller', group: :development
 
 group :development, :test do
   gem 'factory_girl_rails'

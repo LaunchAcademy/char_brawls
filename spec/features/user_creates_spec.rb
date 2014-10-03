@@ -8,18 +8,17 @@ feature "User creates a new account", %Q{
 
   scenario "User provides required information" do
     user = FactoryGirl.build(:user)
-    visit root_path
-    click_on "Click here to Enter Charbrawls"
-    click_on "Sign up"
+    visit new_user_registration_path
     fill_in "First name", with: user.first_name
     fill_in "Last name", with: user.last_name
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
     fill_in "Password confirmation", with: user.password
     within '.new_user' do
-      click_on "Sign up"
+      click_on "Register"
     end
-
+    expect(page).to have_content "Click here to Enter Charbrawls"
+    click_on "Click here to Enter Charbrawls"
     expect(page).to have_content "Welcome! You have signed up successfully."
   end
 
@@ -28,7 +27,7 @@ feature "User creates a new account", %Q{
     click_on "Click here to Enter Charbrawls"
     click_on "Sign up"
     within '.new_user' do
-      click_on "Sign up"
+      click_on "Register"
     end
     expect(page).to have_content "Email can't be blank"
     expect(page).to have_content "Password can't be blank"
@@ -48,7 +47,7 @@ feature "User creates a new account", %Q{
     fill_in "Password confirmation", with: user.password
 
     within '.new_user' do
-      click_on "Sign up"
+      click_on "Register"
     end
 
     expect(page).to have_content "Email has already been taken"
@@ -66,7 +65,7 @@ feature "User creates a new account", %Q{
     fill_in "Password confirmation", with: "fpfejfkef"
 
     within '.new_user' do
-      click_on "Sign up"
+      click_on "Register"
     end
 
     expect(page).to have_content "Password confirmation doesn't match"
