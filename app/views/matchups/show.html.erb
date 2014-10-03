@@ -1,12 +1,11 @@
 </br>
-</br>
-</br>
+<body>
 <div class = "container">
   <div class = "stats">
 
-    <h1 style = "text-align: center">
+    <h3 style = "text-align: center">
   <%= link_to "#{@matchup.character.name}", character_path(@matchup.character) %> vs. <%= link_to "#{@matchup.opponent.name}",character_path(@matchup.character) %>
-    </h1>
+    </h3>
 
 
     <div class = "competition">
@@ -117,7 +116,5 @@
 <%end%>
 
 
-<br>
-<br>
-
 <%= link_to "Go Back", matchups_path %>
+</body>
