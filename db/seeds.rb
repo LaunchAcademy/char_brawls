@@ -777,7 +777,7 @@
   {name: "froakie", body: "{\"type\":\"water\",\"abilities\":\"torrent\",\"attack\":56,\"defense\":41,\"special_attack\":62,\"special_defense\":44,\"speed\":71}", resource_uri: "api/v1/pokemon/656/", photo: "pokeapi.co/media/img/656.png"},
   {name: "vivillon", body: "{\"type\":\"flying\",\"abilities\":\"compoundeyes\",\"attack\":52,\"defense\":50,\"special_attack\":90,\"special_defense\":50,\"speed\":89}", resource_uri: "api/v1/pokemon/666/", photo: "pokeapi.co/media/img/666.png"},
   {name: "pancham", body: "{\"type\":\"fighting\",\"abilities\":\"iron-fist\",\"attack\":82,\"defense\":62,\"special_attack\":46,\"special_defense\":48,\"speed\":43}", resource_uri: "api/v1/pokemon/674/", photo: "pokeapi.co/media/img/674.png"}
-])
+]
 
 characters_attrs.each do |char_attrs|
   Character.find_or_create_by(char_attrs)
