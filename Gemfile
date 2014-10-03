@@ -32,7 +32,6 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
-<<<<<<< HEAD
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -50,8 +49,6 @@ gem 'fog'
 
 
 ruby "2.1.2"
-=======
 group :test do
   gem 'coveralls', require: false
 end
->>>>>>> 6affb7e8eb16b40db3bf96c1364052465b57d078
