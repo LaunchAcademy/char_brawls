@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'nokogiri'
 
 Character.create!([
   {name: "charmeleon", body: "{\"type\":\"fire\",\"abilities\":\"blaze\",\"attack\":64,\"defense\":58,\"special_attack\":80,\"special_defense\":65,\"speed\":80}", resource_uri: "api/v1/pokemon/5/", photo: "pokeapi.co/media/img/5.png"},
@@ -783,16 +784,35 @@ Character.create!([
 
 ################## Download all pokepics to local folder (now on aws) ######################
 
-# Character.all.each do |char|
+counter = 001
+719.times do
 
-#   filename = Rails.root.join("app/assets/images/pokemon/#{char.name}.png")
+  doc = Nokogiri::HTML(open("http://www.serebii.net/pokedex-xy/" + counter.to_s.rjust(3, '0') + ".shtml"))
+  counter += 1
 
-#   open("http://" + char["photo"]) { |f|
-#     File.open(filename, "wb") do |file|
-#       file.puts f.read
-#     end
-#   }
-# end
+  namez = doc.css('table.dextab b').text.gsub(/.*\s/, "").downcase
+
+  if Character.find_by(name: namez) != nil
+    char = Character.find_by(name: namez)
+    puts "found character #{char.name}"
+  else
+    puts "char not found, proceeding.......\n"
+    next
+  end
+
+  filename = Rails.root.join("app/assets/images/pokemon/#{char.name}.png")
+
+  piccy = doc.css('td.pkmn img')[0]
+    puts "retrieving pokeurl"
+
+  open("http://www.serebii.net" + piccy['src']) { |f|
+    File.open(filename, "wb") do |file|
+      file.puts f.read
+      puts "saving pokepic for #{char.name}"
+
+    end
+  }
+end
 
 ############ Done using the Pokemon API #################################
 # require 'net/http'
