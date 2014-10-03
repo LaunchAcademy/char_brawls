@@ -21,6 +21,7 @@ gem 'rails_12factor', group: :production
 gem 'fog'
 gem 'better_errors', group: :development
 gem 'binding_of_caller', group: :development
+gem 'seed_dump'
 
 group :development, :test do
   gem 'factory_girl_rails'
@@ -34,4 +35,3 @@ end
 group :test do
   gem 'coveralls', require: false
 end
-
