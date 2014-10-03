@@ -2,8 +2,8 @@
 
 <% @matchups.each do |matchup| %>
   <p>
-    <img src="/images/pokemon/<%= matchup.character.name %>.png" onerror="this.src='/images/pokemon/pokeball.png'" width = "100px" height = "100px">
-    <%= link_to "#{matchup.character.name} vs. #{matchup.opponent.name}", matchup_path(matchup) %><img src="/images/pokemon/<%= matchup.opponent.name %>.png" onerror="this.src='/images/pokemon/pokeball.png'" width = "100px" height = "100px">
+    <img src="http://s3.amazonaws.com/char-fight-development/pokemon/<%= matchup.character.name %>.png" onerror="src='http://s3.amazonaws.com/char-fight-development/pokemon/pokeball.png'" width = "100px" height = "100px">
+    <%= link_to "#{matchup.character.name} vs. #{matchup.opponent.name}", matchup_path(matchup) %><img src="http://s3.amazonaws.com/char-fight-development/pokemon/<%= matchup.opponent.name %>.png" onerror="src='http://s3.amazonaws.com/char-fight-development/pokemon/pokeball.png'" width = "100px" height = "100px">
   </p>
 
   <% if current_user && current_user.admin? %>

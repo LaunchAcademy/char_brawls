@@ -781,17 +781,18 @@ Character.create!([
   {name: "pancham", body: "{\"type\":\"fighting\",\"abilities\":\"iron-fist\",\"attack\":82,\"defense\":62,\"special_attack\":46,\"special_defense\":48,\"speed\":43}", resource_uri: "api/v1/pokemon/674/", photo: "pokeapi.co/media/img/674.png"}
 ])
 
+################## Download all pokepics to local folder (now on aws) ######################
 
-Character.all.each do |char|
+# Character.all.each do |char|
 
-  filename = Rails.root.join("app/assets/images/pokemon/#{char.name}.png")
+#   filename = Rails.root.join("app/assets/images/pokemon/#{char.name}.png")
 
-  open("http://" + char["photo"]) { |f|
-    File.open(filename, "wb") do |file|
-      file.puts f.read
-    end
-  }
-end
+#   open("http://" + char["photo"]) { |f|
+#     File.open(filename, "wb") do |file|
+#       file.puts f.read
+#     end
+#   }
+# end
 
 ############ Done using the Pokemon API #################################
 # require 'net/http'
