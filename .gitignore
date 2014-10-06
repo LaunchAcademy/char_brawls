@@ -15,3 +15,10 @@
 /log/*.log
 /tmp
 .env
+
+/tmp
+
+
+
+# Ignore simple_cov coverage outpu
+/coverage

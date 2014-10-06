@@ -16,7 +16,7 @@ feature 'user add an avatar', %Q(
     fill_in "Password confirmation", with: user.password
     attach_file 'Profile photo', 'app/assets/images/pitbull_puppy.jpg'
     within '.new_user' do
-      click_on "Sign up"
+      click_on "Register"
     end
     expect(page).to have_content(user.profile_photo)
   end

@@ -54,15 +54,19 @@ ul{
   float:left;
 }
 
-
-.opponent{
+.opponent {
   float:right;
 }
 
-.text {
+.writing {
   text-align: center;
 }
-.text a:hover {
+
+.writing h3 a {
+  color: white;
+}
+
+.writing h3 a:hover {
   color: red;
 }
 
