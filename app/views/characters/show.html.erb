@@ -1,7 +1,6 @@
 <body>
 <h1 class = "title"><%= @character.name%></h1>
-<img id = "pokemon" src = "http://<%= @character.photo%>" alt = "Pokemon" height = "270" width = "270"/>
-<div>
+<img id = "pokemon" src = "http://s3.amazonaws.com/char-fight-development/pokemon/<%= @character.name %>.png" onerror="src='http://s3.amazonaws.com/char-fight-development/pokemon/pokeball.png'" alt = "Pokemon" height = "270" width = "270"/>
 <table style = "width:220px">
   <tr>
     <td class = "odd"width = "70" id = "table-label">Type</td>

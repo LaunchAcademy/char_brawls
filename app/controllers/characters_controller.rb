@@ -6,7 +6,7 @@ class CharactersController < ApplicationController
     if params[:search]
       @characters = Character.search(params[:search]).order("name ASC")
     else
-      @characters = Character.order("name ASC").page(params[:page]).per(10)
+      @characters = Character.order("name ASC").page(params[:page]).per(12)
     end
   end
 

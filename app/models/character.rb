@@ -6,6 +6,6 @@ class Character < ActiveRecord::Base
     uniqueness: true
 
   def self.search(query)
-    where("character_id ilike ?", "%#{query}%")
+    where("name ilike ?", "%#{query}%")
   end
 end
