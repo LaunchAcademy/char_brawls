@@ -1,3 +1,4 @@
+
  characters_attrs = [
   {name: "charmeleon", body: "{\"type\":\"fire\",\"abilities\":\"blaze\",\"attack\":64,\"defense\":58,\"special_attack\":80,\"special_defense\":65,\"speed\":80}", resource_uri: "api/v1/pokemon/5/", photo: "pokeapi.co/media/img/5.png"},
   {name: "blastoise", body: "{\"type\":\"water\",\"abilities\":\"rain-dish\",\"attack\":83,\"defense\":100,\"special_attack\":85,\"special_defense\":105,\"speed\":78}", resource_uri: "api/v1/pokemon/9/", photo: "pokeapi.co/media/img/9.png"},
@@ -782,3 +783,37 @@
 characters_attrs.each do |char_attrs|
   Character.find_or_create_by(char_attrs)
 end
+
+
+################## Download all pokepics to local folder (now on aws) ######################
+
+# require 'open-uri'
+# require 'nokogiri'
+
+# counter = 001
+# 719.times do
+
+#   doc = Nokogiri::HTML(open("http://www.serebii.net/pokedex-xy/" + counter.to_s.rjust(3, '0') + ".shtml"))
+#   counter += 1
+#   namez = doc.css('table.dextab b').text.gsub(/.*\s/, "").downcase
+
+#   if Character.find_by(name: namez) != nil
+#     char = Character.find_by(name: namez)
+#     puts "found character #{char.name}"
+#   else
+#     puts "char not found, proceeding.......\n"
+#     next
+#   end
+
+#   filename = Rails.root.join("app/assets/images/pokemon/#{char.name}.png")
+#   piccy = doc.css('td.pkmn img')[0]
+#     puts "retrieving pokeurl"
+
+#   open("http://www.serebii.net" + piccy['src']) { |f|
+#     File.open(filename, "wb") do |file|
+#       file.puts f.read
+#       puts "saving pokepic for #{char.name}"
+
+#     end
+#   }
+
