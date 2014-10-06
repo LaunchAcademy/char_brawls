@@ -790,13 +790,11 @@ end
 # require 'open-uri'
 # require 'nokogiri'
 
-
 # counter = 001
 # 719.times do
 
 #   doc = Nokogiri::HTML(open("http://www.serebii.net/pokedex-xy/" + counter.to_s.rjust(3, '0') + ".shtml"))
 #   counter += 1
-
 #   namez = doc.css('table.dextab b').text.gsub(/.*\s/, "").downcase
 
 #   if Character.find_by(name: namez) != nil
@@ -808,7 +806,6 @@ end
 #   end
 
 #   filename = Rails.root.join("app/assets/images/pokemon/#{char.name}.png")
-
 #   piccy = doc.css('td.pkmn img')[0]
 #     puts "retrieving pokeurl"
 
