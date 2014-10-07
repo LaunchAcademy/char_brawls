@@ -16,6 +16,6 @@
   <%= f.label :opponent_id, "Character Two" %>
   <%= f.collection_select :opponent_id, Character.all.order(:name), :id, :name, include_blank: true %>
 
-  <%= f.submit "Submit" %>
+  <br><%= f.submit "Submit" %><br>
 
 <% end %>

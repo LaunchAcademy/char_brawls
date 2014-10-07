@@ -20,6 +20,17 @@ body {
   background-position:center;
 }
 
+h3 {
+  color: white;
+  font-family: 'Oswald';
+  display: inline-block;
+
+}
+
+h1{
+  color: white;
+}
+
 nav {
   height: 40px;
   width: 100%;
@@ -34,8 +45,8 @@ nav {
 nav ul {
   padding: 0;
   margin: 0 auto;
-  width: 600px;
-  height: 40px;
+  width: 500px;
+  height: 20px;
 }
 
 nav li {
@@ -46,7 +57,7 @@ nav li {
 nav a {
   color: #fff;
   display: inline-block;
-  width: 100px;
+  width: 150px;
   text-align: center;
   text-decoration: none;
   line-height: 40px;
@@ -111,6 +122,7 @@ nav a:hover, nav a:active {
   width:200px;
 }
 
+
 h1 {
   font-family: 'Oswald';
   display: inline-block;
@@ -128,7 +140,27 @@ h1 {
 ul {
   font-family: 'Maven Pro';
 }
-
+textarea {
+  width: 400px;
+  border-radius: 20px ;
+}
+input[type="text"] {
+  width: 400px;
+  border-radius: 20px ;
+}
+input[type="email"] {
+  width: 400px;
+  border-radius: 20px ;
+}
+input[type="password"] {
+  width: 400px;
+  border-radius: 20px ;
+}
+select {
+  width: 400px;
+  border-radius: 20px ;
+}
 form {
   font-family: 'Maven Pro';
 }
+
